@@ -1,7 +1,6 @@
 package pl.slaszu.gpw.stock.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "stock")
@@ -16,11 +15,9 @@ public class Stock {
     public Stock() {
     }
 
-    public Stock(Long id, String code) {
-        this.id = id;
+    public Stock(String code) {
         this.code = code;
     }
-
 
     public Long getId() {
         return id;
