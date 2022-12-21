@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/StockRepositoryInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/JpaStockRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/StockCreateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/StockCreateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/StockRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/ui/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/ui/rest/StockController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +31,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,7 +62,7 @@
       <recent name="pl.slaszu.gpw.shared" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.gpw [clean,package]">
+  <component name="RunManager" selected="Maven.gpw [spring-boot:run]">
     <configuration name="gpw [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings">
@@ -160,6 +164,18 @@
       <option name="presentableId" value="Default" />
       <updated>1671114767423</updated>
     </task>
+    <task id="LOCAL-00001" summary="idea config files">
+      <created>1671624841303</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1671624841303</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="idea config files" />
+    <option name="LAST_COMMIT_MESSAGE" value="idea config files" />
   </component>
 </project>
