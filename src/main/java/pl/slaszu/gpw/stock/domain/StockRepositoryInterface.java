@@ -1,9 +1,10 @@
 package pl.slaszu.gpw.stock.domain;
 
-import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public interface StockRepositoryInterface {
-    public List<Stock> getAll();
+    public Optional<Stock> getById(UUID stockId);
 
     public void save(Stock stock);
 }

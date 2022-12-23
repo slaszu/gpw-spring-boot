@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.slaszu.gpw.stock.domain.Stock;
 import pl.slaszu.gpw.stock.domain.StockRepositoryInterface;
+import pl.slaszu.gpw.stock.domain.StockViewModel;
+import pl.slaszu.gpw.stock.domain.StockViewModelRepositoryInterface;
 
 import java.util.List;
 
@@ -17,16 +19,21 @@ public class StockController {
     @Autowired
     private StockRepositoryInterface stockRepository;
 
-    @GetMapping("")
-    public List<Stock> getStocks() {
+    @Autowired
+    private StockViewModelRepositoryInterface stockViewModelRepository;
 
-        return this.stockRepository.getAll();
+    @GetMapping("")
+    public List<StockViewModel> getStocks() {
+
+        return this.stockViewModelRepository.getAll();
 
     }
 
     @GetMapping("/add/{code}")
-    public void addRandomStock(@PathVariable String code) {
+    public Stock addRandomStock(@PathVariable String code) {
         Stock stock = new Stock(code);
         this.stockRepository.save(stock);
+
+        return stock;
     }
 }

@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 import pl.slaszu.gpw.stock.domain.Stock;
 import pl.slaszu.gpw.stock.domain.StockRepositoryInterface;
 
-import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 public class StockRepository implements StockRepositoryInterface {
@@ -14,8 +15,8 @@ public class StockRepository implements StockRepositoryInterface {
     private JpaStockRepository jpaStockRepository;
 
     @Override
-    public List<Stock> getAll() {
-        return this.jpaStockRepository.findAll();
+    public Optional<Stock> getById(UUID stockId) {
+        return this.jpaStockRepository.findById(stockId);
     }
 
     @Override
