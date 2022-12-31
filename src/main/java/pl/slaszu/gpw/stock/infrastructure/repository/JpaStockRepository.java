@@ -2,7 +2,7 @@ package pl.slaszu.gpw.stock.infrastructure.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.slaszu.gpw.stock.domain.Stock;
+import pl.slaszu.gpw.stock.domain.model.Stock;
 
 import java.util.UUID;
 

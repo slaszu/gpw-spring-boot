@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stock.domain;
+package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

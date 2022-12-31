@@ -3,8 +3,8 @@ package pl.slaszu.gpw.stock.application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.slaszu.gpw.shared.StockCreateEvent;
-import pl.slaszu.gpw.stock.domain.Stock;
-import pl.slaszu.gpw.stock.domain.StockRepositoryInterface;
+import pl.slaszu.gpw.stock.domain.model.Stock;
+import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 
 @Component
 class StockCreateService {

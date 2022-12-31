@@ -1,7 +1,7 @@
-package pl.slaszu.gpw.stock.domain;
+package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.*;
-import org.springframework.format.annotation.NumberFormat;
+import pl.slaszu.gpw.stock.domain.model.Stock;
 
 import java.util.Date;
 
