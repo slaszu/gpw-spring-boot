@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.slaszu.gpw.stock.application.CreateStock.CreateStockCommand;
+import pl.slaszu.gpw.stock.application.CreateStock.CreateStockException;
+import pl.slaszu.gpw.stock.application.CreateStock.CreateStockService;
 import pl.slaszu.gpw.stock.domain.model.Stock;
-import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 import pl.slaszu.gpw.stock.domain.model.StockViewModel;
 import pl.slaszu.gpw.stock.domain.repository.StockViewModelRepositoryInterface;
 
@@ -17,7 +19,7 @@ import java.util.List;
 public class StockController {
 
     @Autowired
-    private StockRepositoryInterface stockRepository;
+    private CreateStockService createStockService;
 
     @Autowired
     private StockViewModelRepositoryInterface stockViewModelRepository;
@@ -30,10 +32,10 @@ public class StockController {
     }
 
     @GetMapping("/add/{code}")
-    public Stock addRandomStock(@PathVariable String code) {
-        Stock stock = new Stock(code);
-        this.stockRepository.save(stock);
+    public void addRandomStock(@PathVariable String code) throws CreateStockException {
 
-        return stock;
+        CreateStockCommand command = new CreateStockCommand(code);
+        this.createStockService.create(command);
+
     }
 }

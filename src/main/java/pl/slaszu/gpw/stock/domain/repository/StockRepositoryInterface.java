@@ -8,5 +8,7 @@ import java.util.UUID;
 public interface StockRepositoryInterface {
     public Optional<Stock> getById(UUID stockId);
 
+    public Optional<Stock> getByCode(String code);
+
     public void save(Stock stock);
 }

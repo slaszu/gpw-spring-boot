@@ -4,11 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "stock")
+@Getter
+@AllArgsConstructor
 public class Stock {
 
     @Id
@@ -19,17 +23,5 @@ public class Stock {
 
 
     public Stock() {
-    }
-
-    public Stock(String code) {
-        this.code = code;
-    }
-
-    public UUID getId() {
-        return this.id;
-    }
-
-    public String getCode() {
-        return code;
     }
 }
