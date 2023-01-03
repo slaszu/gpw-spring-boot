@@ -1,6 +1,6 @@
-package pl.slaszu.gpw.stock.domain.repository;
+package pl.slaszu.gpw.stock.application.ListStocks;
 
-import pl.slaszu.gpw.stock.domain.model.StockViewModel;
+import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
 
 import java.util.List;
 

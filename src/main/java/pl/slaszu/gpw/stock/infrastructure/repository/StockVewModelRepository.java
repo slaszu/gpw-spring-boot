@@ -3,8 +3,8 @@ package pl.slaszu.gpw.stock.infrastructure.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import pl.slaszu.gpw.stock.domain.model.Stock;
-import pl.slaszu.gpw.stock.domain.model.StockViewModel;
-import pl.slaszu.gpw.stock.domain.repository.StockViewModelRepositoryInterface;
+import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
+import pl.slaszu.gpw.stock.application.ListStocks.StockViewModelRepositoryInterface;
 
 import java.util.List;
 import java.util.stream.Collectors;

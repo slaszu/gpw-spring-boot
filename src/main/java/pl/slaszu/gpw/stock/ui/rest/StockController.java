@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockCommand;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockException;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockService;
-import pl.slaszu.gpw.stock.domain.model.Stock;
-import pl.slaszu.gpw.stock.domain.model.StockViewModel;
-import pl.slaszu.gpw.stock.domain.repository.StockViewModelRepositoryInterface;
+import pl.slaszu.gpw.stock.application.ListStocks.ListStocksQuery;
+import pl.slaszu.gpw.stock.application.ListStocks.ListStocksService;
+import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
 
 import java.util.List;
 
@@ -22,12 +22,13 @@ public class StockController {
     private CreateStockService createStockService;
 
     @Autowired
-    private StockViewModelRepositoryInterface stockViewModelRepository;
+    private ListStocksService listStocksService;
 
     @GetMapping("")
     public List<StockViewModel> getStocks() {
 
-        return this.stockViewModelRepository.getAll();
+        ListStocksQuery query = new ListStocksQuery();
+        return this.listStocksService.query(query);
 
     }
 

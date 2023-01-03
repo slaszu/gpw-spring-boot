@@ -10,4 +10,8 @@ class GpwApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void isCreateWorking() {
+
+	}
 }

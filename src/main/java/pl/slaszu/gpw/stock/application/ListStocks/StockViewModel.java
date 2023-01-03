@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stock.domain.model;
+package pl.slaszu.gpw.stock.application.ListStocks;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
