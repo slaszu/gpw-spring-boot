@@ -1,10 +1,10 @@
-package pl.slaszu.gpw.stock.domain.source;
+package pl.slaszu.gpw.stock.application.FetchStocks;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class StockData {
+public class StockDTO {
     private String code;
 }

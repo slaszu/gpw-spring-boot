@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/DataProviderInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/StockDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/source/ProviderInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/source/StockData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/source/StooqProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/ui/rest/SourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/rest/SourceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/ui/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/rest/StockController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
