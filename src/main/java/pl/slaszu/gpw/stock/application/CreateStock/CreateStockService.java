@@ -1,5 +1,7 @@
 package pl.slaszu.gpw.stock.application.CreateStock;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.slaszu.gpw.stock.domain.model.Stock;
@@ -8,6 +10,7 @@ import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class CreateStockService {
     @Autowired
     private StockRepositoryInterface stockRepositoryInterface;
