@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stock.infrastructure.repository.rest;
+package pl.slaszu.gpw.stock.infrastructure.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

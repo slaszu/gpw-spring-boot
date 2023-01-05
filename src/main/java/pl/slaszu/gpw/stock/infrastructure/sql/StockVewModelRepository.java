@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stock.infrastructure.repository;
+package pl.slaszu.gpw.stock.infrastructure.sql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
