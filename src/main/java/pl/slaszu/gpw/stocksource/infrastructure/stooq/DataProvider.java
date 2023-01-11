@@ -29,7 +29,7 @@ public class DataProvider implements DataProviderInterface {
 
         Document doc;
         try {
-            // TODO: 11.01.2023 add pagination in stooq crawling logic 
+            // TODO: 11.01.2023 add pagination in stooq crawling logic
             String url = this.getUrlForPageNumber(1);
             log.info(url);
             Map<String, String> headers = new HashMap<>();

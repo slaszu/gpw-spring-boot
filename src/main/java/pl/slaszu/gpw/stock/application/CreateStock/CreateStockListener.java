@@ -19,6 +19,7 @@ public class CreateStockListener {
         StockDTO stockDTO = event.getStockDTO();
 
         CreateStockCommand command = new CreateStockCommand(stockDTO.getCode());
+        // TODO: 11.01.2023 stock could exists manage this case 
         this.createStockService.create(command);
         log.info("Create whenStockFetched %s".formatted(stockDTO.getCode()));
     }
