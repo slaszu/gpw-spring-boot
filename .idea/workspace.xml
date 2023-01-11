@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/FetchStocksService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/EventDispatcherInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/StooqSource/DataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/sharedkernel/domain/EventDispatcherInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/sharedkernel/domain/infrastructure/EventDispatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/FetchStocksException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/StockFetchedEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/DataProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/model/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/SourceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/web/FrontController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/JpaStockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/JpaStockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/StockVewModelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockVewModelRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/rest/SourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/SourceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/repository/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/DataProviderInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/DataProviderInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/FetchStocksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/FetchStocksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/FetchStocks/StockDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/StockDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/EventDispatcherInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/StooqSource/DataProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/SourceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gpw.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gpw.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +63,7 @@
   <component name="ProjectId" id="2IxEJphRZnDdux92zc7WFveLOje" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>

@@ -13,3 +13,5 @@ spring:
     properties.hibernate.format_sql: true
   h2:
     console.enabled: true
+  config:
+    import: optional:classpath:gpw.yaml
