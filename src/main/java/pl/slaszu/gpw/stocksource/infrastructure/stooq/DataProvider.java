@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.DataProviderInterface;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDTO;
+import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,9 +28,9 @@ public class DataProvider implements DataProviderInterface {
     }
 
     @Override
-    public List<StockDTO> getData() throws FetchStocksException {
+    public List<StockDto> getData() throws FetchStocksException {
 
-        ArrayList<StockDTO> stockCodes = new ArrayList<>();
+        ArrayList<StockDto> stockCodes = new ArrayList<>();
         int pageNumber = 1;
         int counter = 0;
 
@@ -54,7 +54,7 @@ public class DataProvider implements DataProviderInterface {
                 }
 
                 stockCodes.add(
-                        new StockDTO(cells.get(0).text())
+                        new StockDto(cells.get(0).text())
                 );
                 counter++;
             }

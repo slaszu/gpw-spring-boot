@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class StockDTO {
+public class StockDto {
     private String code;
 }

@@ -6,5 +6,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class StockFetchedEvent {
-    private StockDTO stockDTO;
+    private StockDto stockDTO;
 }

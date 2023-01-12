@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDTO;
+import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.StockFetchedEvent;
 
 @Component
@@ -16,7 +16,7 @@ public class CreateStockListener {
 
     @EventListener
     public void whenStockFetched(StockFetchedEvent event) {
-        StockDTO stockDTO = event.getStockDTO();
+        StockDto stockDTO = event.getStockDTO();
         CreateStockCommand command = new CreateStockCommand(stockDTO.getCode());
         try {
             this.createStockService.create(command);

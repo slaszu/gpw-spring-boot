@@ -18,7 +18,7 @@ public class FetchStocksService {
 
     public void fetch(DataProviderInterface dataProviderInterface) throws FetchStocksException {
         dataProviderInterface.getData().forEach(
-                (StockDTO stockDTO) -> {
+                (StockDto stockDTO) -> {
                     log.debug("Fetched stock code [x]".replace("x", stockDTO.getCode()));
 
                     this.eventDispatcher.dispatch(new StockFetchedEvent(stockDTO));
