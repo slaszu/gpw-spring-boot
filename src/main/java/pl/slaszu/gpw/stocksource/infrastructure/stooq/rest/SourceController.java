@@ -6,10 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksService;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDTO;
 import pl.slaszu.gpw.stocksource.infrastructure.stooq.DataProvider;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/sources")

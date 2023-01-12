@@ -15,3 +15,7 @@ spring:
     console.enabled: true
   config:
     import: optional:classpath:gpw.yaml
+
+logging:
+  level:
+    pl.slaszu.gpw: DEBUG

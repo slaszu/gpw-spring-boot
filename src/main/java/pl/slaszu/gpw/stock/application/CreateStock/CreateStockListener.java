@@ -15,12 +15,15 @@ public class CreateStockListener {
     private CreateStockService createStockService;
 
     @EventListener
-    public void whenStockFetched(StockFetchedEvent event) throws CreateStockException {
+    public void whenStockFetched(StockFetchedEvent event) {
         StockDTO stockDTO = event.getStockDTO();
-
         CreateStockCommand command = new CreateStockCommand(stockDTO.getCode());
-        // TODO: 11.01.2023 stock could exists manage this case 
-        this.createStockService.create(command);
-        log.info("Create whenStockFetched %s".formatted(stockDTO.getCode()));
+        try {
+            this.createStockService.create(command);
+        } catch (CreateStockException e) {
+            log.debug("Stock with code %s already exists".formatted(stockDTO.getCode()));
+            return;
+        }
+        log.debug("Create whenStockFetched %s".formatted(stockDTO.getCode()));
     }
 }
