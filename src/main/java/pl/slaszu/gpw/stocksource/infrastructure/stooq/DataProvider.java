@@ -53,6 +53,8 @@ public class DataProvider implements DataProviderInterface {
                     continue;
                 }
 
+                // TODO: 17.01.2023 fetch date, value, max, min volumen, etc 
+                
                 stockCodes.add(
                         new StockDto(cells.get(0).text())
                 );

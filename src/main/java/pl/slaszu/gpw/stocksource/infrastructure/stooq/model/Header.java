@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// TODO: 11.01.2023 entity must keep cookie for stooq website
 @Entity
 @Data
 @NoArgsConstructor
