@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class HeaderViewModelRepository {
@@ -12,12 +13,10 @@ public class HeaderViewModelRepository {
     private HeaderRepository headerRepository;
 
     public List<HeaderViewModel> getAll() {
-        return this.headerRepository.findAll().stream().map(
-                (Header h) -> new HeaderViewModel(h.getHeaderName(), h.getHeaderValue())
-        ).toList();
+        return this.headerRepository.findAll().stream().map(this::toViewModel).toList();
     }
 
-    public void create(HeaderViewModel headerViewModel) {
-        this.headerRepository.save(new Header(headerViewModel.getName(), headerViewModel.getValue()));
+    private HeaderViewModel toViewModel(Header header) {
+        return new HeaderViewModel(header.getHeaderName(), header.getHeaderValue());
     }
 }

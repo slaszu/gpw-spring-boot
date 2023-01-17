@@ -1,12 +1,13 @@
 package pl.slaszu.gpw.stocksource.infrastructure.stooq.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 // TODO: 11.01.2023 entity must keep cookie for stooq website
 @Entity
-@Getter
+@Data
 @NoArgsConstructor
 public class Header {
     @Id
@@ -19,6 +20,7 @@ public class Header {
         this.headerValue = headerValue;
     }
 
+    @Column(unique = true)
     private String headerName;
 
     @Column(length = 5000)
