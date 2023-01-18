@@ -26,6 +26,6 @@ public class StockRepository implements StockRepositoryInterface {
 
     @Override
     public void save(Stock stock) {
-        this.jpaStockRepository.save(stock);
+        this.jpaStockRepository.saveAndFlush(stock);
     }
 }

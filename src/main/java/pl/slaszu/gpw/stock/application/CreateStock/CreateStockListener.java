@@ -17,13 +17,21 @@ public class CreateStockListener {
     @EventListener
     public void whenStockFetched(StockFetchedEvent event) {
         StockDto stockDTO = event.getStockDTO();
-        CreateStockCommand command = new CreateStockCommand(stockDTO.getCode());
-        try {
+
+        CreateStockPriceCommand stockPriceCommand = new CreateStockPriceCommand(
+                stockDTO.getPriceOpen(),
+                stockDTO.getPriceHigh(),
+                stockDTO.getPriceLow(),
+                stockDTO.getPrice(),
+                stockDTO.getVolume(),
+                stockDTO.getAmount(),
+                stockDTO.getDate()
+        );
+
+        CreateStockCommand command = new CreateStockCommand(stockDTO.getCode(), stockDTO.getName(), stockPriceCommand);
+
             this.createStockService.create(command);
-        } catch (CreateStockException e) {
-            log.debug("Stock with code %s already exists".formatted(stockDTO.getCode()));
-            return;
-        }
+
         log.debug("Create whenStockFetched %s".formatted(stockDTO.getCode()));
     }
 }

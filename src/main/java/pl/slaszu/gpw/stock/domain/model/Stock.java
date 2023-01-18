@@ -21,6 +21,7 @@ public class Stock {
 
     private String code;
 
+    private String name;
 
     public Stock() {
     }

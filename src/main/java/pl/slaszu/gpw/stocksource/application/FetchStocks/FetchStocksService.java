@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import pl.slaszu.gpw.sharedkernel.domain.EventDispatcherInterface;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockService;
 
+import java.util.Date;
+
 @Service
 @Slf4j
 public class FetchStocksService {
@@ -16,8 +18,8 @@ public class FetchStocksService {
     @Autowired
     private EventDispatcherInterface eventDispatcher;
 
-    public void fetch(DataProviderInterface dataProviderInterface) throws FetchStocksException {
-        dataProviderInterface.getData().forEach(
+    public void fetch(DataProviderInterface dataProviderInterface, Date date) throws FetchStocksException {
+        dataProviderInterface.getData(date).forEach(
                 (StockDto stockDTO) -> {
                     log.debug("Fetched stock code [x]".replace("x", stockDTO.getCode()));
 

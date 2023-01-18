@@ -1,45 +1,46 @@
 package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.*;
-import pl.slaszu.gpw.stock.domain.model.Stock;
+import lombok.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "stock_price")
+@AllArgsConstructor
+@Data
 public class StockPrice {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @GeneratedValue
+    @Setter(AccessLevel.NONE)
+    private UUID id;
 
-    private Integer priceOpen;
+    private Float priceOpen;
 
-    private Integer priceHigh;
+    private Float priceHigh;
 
-    private Integer priceLow;
+    private Float priceLow;
+
+    private Float price;
 
     private Integer volume;
 
+    private Integer amount;
+
     private Date date;
+
+    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+    @JoinColumn(name = "stock_id", nullable = false)
+    @Setter(AccessLevel.NONE)
+    private Stock stock;
 
     public StockPrice() {
     }
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
-    @JoinColumn(name = "stock_id", nullable = false)
-    private Stock stock;
-
-    public Integer getPriceLow() {
-        return priceLow;
-    }
-
-    public Stock getStock() {
-        return stock;
-    }
-
-    public void setStock(Stock stock) {
+    public StockPrice(UUID id, Stock stock) {
+        this.id = id;
         this.stock = stock;
     }
-
 }

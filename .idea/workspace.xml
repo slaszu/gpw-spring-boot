@@ -5,9 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="idea config files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockPriceCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/repository/StockPriceRepositoryInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/JpaStockPriceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockPriceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/service/StockDtoProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/StockPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/StockPrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/DataProviderInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/DataProviderInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/FetchStocksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/FetchStocksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/StockDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/application/FetchStocks/StockDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/DataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/DataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/model/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/model/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +36,9 @@
       <list>
         <option value="module-info" />
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="com.haulmont.jpb.JpaRepository" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -50,20 +67,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/slaszu/projects/java/gpw-spring-boot&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "last_opened_file_path": "/Users/slaszu/projects/java/gpw-spring-boot",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -198,5 +215,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="idea config files" />
     <option name="LAST_COMMIT_MESSAGE" value="idea config files" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

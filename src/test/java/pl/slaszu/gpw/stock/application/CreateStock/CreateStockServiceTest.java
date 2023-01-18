@@ -3,11 +3,13 @@ package pl.slaszu.gpw.stock.application.CreateStock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.slaszu.gpw.stock.domain.model.Stock;
+import pl.slaszu.gpw.stock.domain.repository.StockPriceRepositoryInterface;
 import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +25,10 @@ class CreateStockServiceTest {
         when(stockRepository.getByCode("kghm")).thenReturn(Optional.empty());
         when(stockRepository.getByCode("pzu")).thenReturn(Optional.of(stock));
 
-        this.createStockService = new CreateStockService(stockRepository);
+        StockPriceRepositoryInterface stockPriceRepository = mock(StockPriceRepositoryInterface.class);
+
+        // TODO: 18.01.2023 dodoac jakies testy zwiazane ze sprawdzaniem wywolywanych metod w mockach 
+        this.createStockService = new CreateStockService(stockRepository, stockPriceRepository);
     }
 
     @Test
@@ -34,8 +39,8 @@ class CreateStockServiceTest {
 
     @Test
     public void testCreateStockAlreadyExists() {
-        CreateStockCommand command = new CreateStockCommand("pzu");
-        assertThrows(CreateStockException.class, () -> this.createStockService.create(command));
+//        CreateStockCommand command = new CreateStockCommand("pzu");
+        
     }
 
 }

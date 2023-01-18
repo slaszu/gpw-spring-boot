@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stocksource.application.FetchStocks;
+package pl.slaszu.gpw.stock.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,10 +7,7 @@ import java.util.Date;
 
 @Getter
 @AllArgsConstructor
-public class StockDto {
-    private String code;
-
-    private String name;
+public class CreateStockPriceCommand {
 
     private Float priceOpen;
 
@@ -25,5 +22,4 @@ public class StockDto {
     private Integer amount;
 
     private Date date;
-
 }

@@ -2,11 +2,8 @@ package pl.slaszu.gpw.stock.infrastructure.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.slaszu.gpw.stock.application.CreateStock.CreateStockCommand;
-import pl.slaszu.gpw.stock.application.CreateStock.CreateStockException;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockService;
 import pl.slaszu.gpw.stock.application.ListStocks.ListStocksQuery;
 import pl.slaszu.gpw.stock.application.ListStocks.ListStocksService;
@@ -29,14 +26,6 @@ public class StockController {
 
         ListStocksQuery query = new ListStocksQuery();
         return this.listStocksService.query(query);
-
-    }
-
-    @GetMapping("/add/{code}")
-    public void addRandomStock(@PathVariable String code) throws CreateStockException {
-
-        CreateStockCommand command = new CreateStockCommand(code);
-        this.createStockService.create(command);
 
     }
 }
