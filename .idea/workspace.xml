@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="idea config files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/Stock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/StockPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/domain/model/StockPrice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockPriceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockPriceRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/sql/StockRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

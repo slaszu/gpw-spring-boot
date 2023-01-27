@@ -2,7 +2,10 @@ package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -29,6 +32,7 @@ public class StockPrice {
 
     private Integer amount;
 
+    @Temporal(TemporalType.DATE)
     private Date date;
 
 
