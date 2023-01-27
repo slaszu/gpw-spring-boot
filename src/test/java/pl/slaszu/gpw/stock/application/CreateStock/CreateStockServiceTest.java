@@ -28,7 +28,7 @@ class CreateStockServiceTest {
         StockPriceRepositoryInterface stockPriceRepository = mock(StockPriceRepositoryInterface.class);
 
         // TODO: 18.01.2023 dodoac jakies testy zwiazane ze sprawdzaniem wywolywanych metod w mockach 
-        this.createStockService = new CreateStockService(stockRepository, stockPriceRepository);
+        //this.createStockService = new CreateStockService(stockRepository, stockPriceRepository);
     }
 
     @Test

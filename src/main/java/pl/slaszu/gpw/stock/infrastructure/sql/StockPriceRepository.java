@@ -22,6 +22,6 @@ public class StockPriceRepository implements StockPriceRepositoryInterface {
 
     @Override
     public void save(StockPrice stockPrice) {
-        this.jpaStockPriceRepository.saveAndFlush(stockPrice);
+        this.jpaStockPriceRepository.save(stockPrice);
     }
 }

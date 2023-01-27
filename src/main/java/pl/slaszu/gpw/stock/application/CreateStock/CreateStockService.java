@@ -1,8 +1,11 @@
 package pl.slaszu.gpw.stock.application.CreateStock;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import pl.slaszu.gpw.stock.domain.model.Stock;
 import pl.slaszu.gpw.stock.domain.model.StockPrice;
 import pl.slaszu.gpw.stock.domain.repository.StockPriceRepositoryInterface;
@@ -14,28 +17,37 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CreateStockService {
     @Autowired
     private StockRepositoryInterface stockRepository;
 
     private StockPriceRepositoryInterface stockPriceRepository;
 
+    @Transactional
     public void create(CreateStockCommand command) {
 
-        Stock stock = this.getOrCreateStock(command);
-
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
-        if (createStockPriceCommand == null) {
+        if (createStockPriceCommand != null) {
+            this.createStockWithPrice(command);
             return;
         }
 
+        Stock stock = this.getOrCreateStock(command);
+        this.stockRepository.save(stock);
+    }
+
+    private void createStockWithPrice(CreateStockCommand command)
+    {
+        Stock stock = this.getOrCreateStock(command);
+
+        CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         StockPrice stockPrice = this.getOrCreateStockPrice(stock, createStockPriceCommand.getDate());
         this.refreshStockPrice(stockPrice, createStockPriceCommand);
 
-        // TODO: 18.01.2023 to cos nie trybi z zapisem jednoczesnie stock a potem stockPrice powiazanego ze stock 
-        this.stockRepository.save(stock);
         this.stockPriceRepository.save(stockPrice);
     }
+
 
     private void refreshStockPrice(StockPrice stockPrice, CreateStockPriceCommand createStockPriceCommand) {
         stockPrice.setPrice(createStockPriceCommand.getPrice());
@@ -50,11 +62,12 @@ public class CreateStockService {
     private StockPrice getOrCreateStockPrice(Stock stock, Date date) {
         Optional<StockPrice> byStockAndDate = this.stockPriceRepository.getByStockAndDate(stock, date);
         if (byStockAndDate.isPresent()) {
+            log.debug("getOrCreateStockPrice = get");
             return byStockAndDate.get();
         }
 
         UUID uuid = UUID.randomUUID();
-
+        log.debug("getOrCreateStockPrice = create");
         return new StockPrice(
                 uuid,
                 stock
@@ -64,11 +77,12 @@ public class CreateStockService {
     private Stock getOrCreateStock(CreateStockCommand command) {
         Optional<Stock> byCode = this.stockRepository.getByCode(command.getCode());
         if (byCode.isPresent()) {
+            log.debug("getOrCreateStock = get");
             return byCode.get();
         }
 
         UUID uuid = UUID.randomUUID();
-
+        log.debug("getOrCreateStock = create");
         return new Stock(uuid, command.getCode(), command.getName());
     }
 }

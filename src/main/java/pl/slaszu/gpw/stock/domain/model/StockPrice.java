@@ -31,9 +31,9 @@ public class StockPrice {
 
     private Date date;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, optional = false)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "stock_id", nullable = false)
-    @Setter(AccessLevel.NONE)
     private Stock stock;
 
     public StockPrice() {
