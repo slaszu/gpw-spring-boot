@@ -1,10 +1,8 @@
 package pl.slaszu.gpw.stocksource.infrastructure.stooq.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
 import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksService;
 import pl.slaszu.gpw.stocksource.infrastructure.stooq.DataProvider;
@@ -26,7 +24,11 @@ public class StooqController {
     private HeaderViewModelRepository headerViewModelRepository;
 
     @GetMapping({"/fetch", "/fetch/{date}"})
-    public void fetchStooq(@PathVariable( required = false) Date date) throws FetchStocksException {
+    public void fetchStooq(
+            @PathVariable(required = false)
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            Date date
+    ) throws FetchStocksException {
         if (date == null) {
             date = new Date();
         }

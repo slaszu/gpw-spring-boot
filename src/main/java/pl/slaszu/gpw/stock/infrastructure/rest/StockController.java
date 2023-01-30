@@ -11,6 +11,8 @@ import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
 
 import java.util.List;
 
+// TODO: 27.01.2023 add stock with price endpoint /stocks/{code}/{date|optional} 
+
 @RestController
 @RequestMapping("/stocks")
 public class StockController {

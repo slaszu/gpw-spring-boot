@@ -15,6 +15,7 @@ import pl.slaszu.gpw.stocksource.infrastructure.stooq.model.HeaderViewModelRepos
 import pl.slaszu.gpw.stocksource.infrastructure.stooq.service.StockDtoProvider;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +49,7 @@ public class DataProvider implements DataProviderInterface {
         int counter = 0;
 
         do {
-            String url = this.getUrlForPageNumber(pageNumber++);
+            String url = this.getUrlForPageNumber(pageNumber++, date);
             Document doc = this.getDocumentForUrl(url);
             Elements rows = doc.select("#fth1 tr");
 
@@ -101,7 +102,13 @@ public class DataProvider implements DataProviderInterface {
 
     }
 
-    private String getUrlForPageNumber(Integer pageNumber) {
-        return this.urlWithPlaceholders.replace("[page]", pageNumber.toString());
+    private String getUrlForPageNumber(Integer pageNumber, Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+        String dateString = sdf.format(date);
+
+        return this.urlWithPlaceholders
+                .replace("[page]", pageNumber.toString())
+                .replace("[date]", dateString);
     }
 }
