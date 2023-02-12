@@ -9,6 +9,7 @@ import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -27,7 +28,7 @@ class CreateStockServiceTest {
         StockPriceRepositoryInterface stockPriceRepository = mock(StockPriceRepositoryInterface.class);
 
         // TODO: 18.01.2023 dodoac jakies testy zwiazane ze sprawdzaniem wywolywanych metod w mockach 
-        //this.createStockService = new CreateStockService(stockRepository, stockPriceRepository);
+        this.createStockService = new CreateStockService(stockRepository, stockPriceRepository);
     }
 
     @Test
@@ -38,8 +39,8 @@ class CreateStockServiceTest {
 
     @Test
     public void testCreateStockAlreadyExists() {
-//        CreateStockCommand command = new CreateStockCommand("pzu");
-        
+        CreateStockCommand command = new CreateStockCommand("pzu");
+        this.createStockService.create(command);
     }
 
 }
