@@ -1,7 +1,9 @@
 package pl.slaszu.gpw.stocksource.infrastructure.stooq.rest;
 
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.slaszu.gpw.stocksource.infrastructure.stooq.model.HeaderViewModel;
@@ -12,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sources/stooq/headers")
+@Tag(name = "Stooq.pl")
 public class HeadersController {
     @Autowired
     private HeaderViewModelRepository headerViewModelRepository;

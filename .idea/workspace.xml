@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="">
+    <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="DateTimeFormat annotation">
       <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/service/DateBetweenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/HeadersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/HeadersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/slaszu/gpw/stock/application/CreateStock/CreateStockServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <recent name="pl.slaszu.gpw.stock.application.CreateStock" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.gpw [test]">
+  <component name="RunManager" selected="Maven.gpw [spring-boot:run]">
     <configuration name="GpwApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.slaszu.gpw.GpwApplication" />
       <module name="gpw" />
@@ -178,32 +178,6 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="gpw [spring-boot:run,test]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="spring-boot:run" />
-                <option value="test" />
-              </list>
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="gpw [test]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -231,7 +205,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.GpwApplication" />
-      <item itemvalue="Maven.gpw [spring-boot:run,test]" />
       <item itemvalue="Maven.gpw [test]" />
       <item itemvalue="Maven.gpw [spring-boot:run]" />
       <item itemvalue="Maven.gpw [clean,package]" />
@@ -288,27 +261,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java</url>
-          <line>28</line>
+          <line>30</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java</url>
-          <line>29</line>
+          <line>31</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java</url>
-          <line>54</line>
+          <line>56</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java</url>
-          <line>55</line>
+          <line>57</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
