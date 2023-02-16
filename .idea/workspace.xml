@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bcb65b4-1c95-4abc-8980-b1db240925e3" name="Changes" comment="DateTimeFormat annotation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/service/DateBetweenProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stock/infrastructure/rest/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/HeadersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/HeadersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/slaszu/gpw/stocksource/infrastructure/stooq/rest/StooqController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
