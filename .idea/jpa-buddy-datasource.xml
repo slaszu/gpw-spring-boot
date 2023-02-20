@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JpbDataSourceConfig">
-    <data-sources>
-      <data-source id="1db07a30-00fe-498a-a856-742b67dc6a08" name="gpw" url="jdbc:h2:file:~/data/h2/gpw" driverClass="org.h2.Driver" />
-    </data-sources>
-  </component>
-</project>
