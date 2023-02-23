@@ -75,7 +75,17 @@ public class CreateStockService {
     }
 
     private Stock getOrCreateStock(CreateStockCommand command) {
-        Optional<Stock> byCode = this.stockRepository.getByCode(command.getCode());
+
+        String code = command.getCode();
+        Optional<Stock> byCode;
+
+        if (!code.equals("")) {
+            byCode = this.stockRepository.getByCode(command.getCode());
+        } else {
+            byCode = this.stockRepository.getByName(command.getName());
+            code = null;
+        }
+
         if (byCode.isPresent()) {
             log.debug("getOrCreateStock = get");
             return byCode.get();
@@ -83,6 +93,6 @@ public class CreateStockService {
 
         UUID uuid = UUID.randomUUID();
         log.debug("getOrCreateStock = create");
-        return new Stock(uuid, command.getCode(), command.getName());
+        return new Stock(uuid, code, command.getName());
     }
 }

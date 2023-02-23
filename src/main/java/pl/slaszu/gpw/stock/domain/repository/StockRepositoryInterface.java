@@ -10,5 +10,7 @@ public interface StockRepositoryInterface {
 
     public Optional<Stock> getByCode(String code);
 
+    public Optional<Stock> getByName(String code);
+
     public void save(Stock stock);
 }

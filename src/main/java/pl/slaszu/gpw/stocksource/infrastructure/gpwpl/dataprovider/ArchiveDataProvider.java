@@ -74,10 +74,10 @@ public class ArchiveDataProvider implements DataProviderInterface {
 
         Date date = formatter.parse(row.getCell(0).getStringCellValue());
 
-        // TODO: 23.02.2023 code in stock is not good, remove and use only name 
+        // TODO: 23.02.2023 code in stock is not good, remove and use only name
         
         return new StockDto(
-                row.getCell(2).getStringCellValue(), // code
+                "", // code, not exists in gpw.pl
                 row.getCell(1).getStringCellValue(), // name
                 (float) row.getCell(4).getNumericCellValue(), // open
                 (float) row.getCell(5).getNumericCellValue(), // high

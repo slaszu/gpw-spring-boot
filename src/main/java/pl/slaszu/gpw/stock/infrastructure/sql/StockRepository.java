@@ -25,6 +25,11 @@ public class StockRepository implements StockRepositoryInterface {
     }
 
     @Override
+    public Optional<Stock> getByName(String name) {
+        return this.jpaStockRepository.findByName(name);
+    }
+
+    @Override
     public void save(Stock stock) {
         this.jpaStockRepository.save(stock);
     }

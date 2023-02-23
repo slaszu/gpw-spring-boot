@@ -30,7 +30,10 @@ public class DataProvider implements DataProviderInterface {
             throw new FetchStocksException("Date must by equal today or earlier, you given date is later than today !");
         }
 
-        if (format.format(date) == format.format(now)) {
+        String givenS = format.format(date);
+        String nowS = format.format(now);
+
+        if (givenS.equals(nowS)) {
             return this.todayDataProvider.getData(date);
         }
 

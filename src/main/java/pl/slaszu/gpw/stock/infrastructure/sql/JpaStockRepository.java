@@ -10,4 +10,6 @@ import java.util.UUID;
 @Repository
 public interface JpaStockRepository extends JpaRepository<Stock, UUID> {
     public Optional<Stock> findByCode(String code);
+
+    public Optional<Stock> findByName(String name);
 }

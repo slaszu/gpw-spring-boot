@@ -19,6 +19,7 @@ public class Stock {
     @Column(unique = true)
     private String code;
 
+    @Column(unique = true)
     private String name;
 
     public Stock() {
