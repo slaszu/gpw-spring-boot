@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:file:~/data/h2/gpw
+    url: jdbc:h2:file:${gpw.default-dir}/h2/gpw
     username: sa
     password: password
     driverClassName: org.h2.Driver
