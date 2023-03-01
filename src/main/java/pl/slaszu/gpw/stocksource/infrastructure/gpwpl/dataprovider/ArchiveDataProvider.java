@@ -48,6 +48,10 @@ public class ArchiveDataProvider implements DataProviderInterface {
         log.debug("Gpw.pl archive date '%s'".formatted(format.format(date)));
         log.debug("Gpw.pl archive url '%s'".formatted(currentUrl));
 
+        // TODO: 23.02.2023 copyURLToFile can be removed
+//        File file = new File(this.dirTemp, "last_archive.xls");
+//        FileUtils.copyURLToFile(new URL(currentUrl), file, 3000, 3000);
+
         Workbook workbook = new HSSFWorkbook(new URL(currentUrl).openStream());
         Sheet sheet = workbook.getSheetAt(0);
         Iterator<Row> iterator = sheet.rowIterator();
