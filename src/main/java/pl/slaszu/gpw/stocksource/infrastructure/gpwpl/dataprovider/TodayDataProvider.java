@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Row;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -50,44 +51,44 @@ public class TodayDataProvider implements DataProviderInterface {
 
         Elements table_tr = document.select("table tr");
 
-        return new ArrayList<>();
+        // missing two rows
+        table_tr.remove(0);
+        table_tr.remove(0);
 
+        List<StockDto> stockCodes = new ArrayList<>();
 
-//
-//        FileInputStream fileIn = new FileInputStream(file);
-//
-//        Workbook workbook = new HSSFWorkbook(fileIn);
-//
-//
-//        Sheet sheet = workbook.getSheetAt(0);
-//        Iterator<Row> iterator = sheet.rowIterator();
-//
-//        List<StockDto> result = new ArrayList<>();
-//        // skip first 2 rows
-//        iterator.next();
-//        iterator.next();
-//        while (iterator.hasNext()) {
-//            Row row = iterator.next();
-//
-//            result.add(this.fromRow(row));
-//        }
-//
-//        return result;
+        for (Element row : table_tr) {
+            // find td elements in row
+            Elements cells = row.select("td");
+            stockCodes.add(
+                    this.fromTableCells(cells)
+            );
+        }
+
+        return stockCodes;
     }
 
-    private StockDto fromRow(Row row) throws ParseException {
+    private StockDto fromTableCells(Elements cells) {
         Date date = new Date();
 
         return new StockDto(
                 "", // code, not exists in gpw.pl
-                row.getCell(2).getStringCellValue(), // name
-                (float) row.getCell(9).getNumericCellValue(), // open
-                (float) row.getCell(11).getNumericCellValue(), // high
-                (float) row.getCell(10).getNumericCellValue(), // low
-                (float) row.getCell(12).getNumericCellValue(), // price
-                (int) row.getCell(23).getNumericCellValue(), // volumen
-                (int) row.getCell(24).getNumericCellValue() * 1000, // amount
+                cells.get(2).text(), // name
+                this.fromStringToFloat(cells.get(9).text()), // open
+                this.fromStringToFloat(cells.get(11).text()), // high
+                this.fromStringToFloat(cells.get(10).text()), // low
+                this.fromStringToFloat(cells.get(12).text()), // price
+                this.fromStringToFloat(cells.get(23).text()).intValue(), // volumen
+                this.fromStringToFloat(cells.get(24).text()).intValue() * 1000, // amount
                 date
         );
+    }
+
+    private Float fromStringToFloat(String string) {
+        if (string.isEmpty()) {
+            return (float) 0;
+        }
+
+        return Float.valueOf(string);
     }
 }
