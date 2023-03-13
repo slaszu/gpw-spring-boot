@@ -4,10 +4,13 @@ services:
     container_name: gpw-mysql
     restart: always
     image: mysql:latest
+    # no problem with login by user nad password (plain text)
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_ROOT_PASSWORD: 'gpw-mysql-root-password-123234#@' # TODO: Change this
-      MYSQL_USER: 'gpw'
-      MYSQL_PASS: 'gpw-password-213#'
+      MYSQL_ROOT_PASSWORD: gpw-mysql-root-password-123234!
+      MYSQL_USER: gpw
+      MYSQL_PASSWORD: gpw-password-213!
+      MYSQL_DATABASE: gpw-db
     volumes:
       - ./docker-volumes/mysql:/var/lib/mysql
     ports:

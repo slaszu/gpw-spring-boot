@@ -1,19 +1,16 @@
 spring:
   datasource:
-    url: jdbc:h2:file:${gpw.default-dir}/h2/gpw
-    username: sa
-    password: password
-    driverClassName: org.h2.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3309/gpw-db
+    username: gpw
+    password: gpw-password-213!
+    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
 
     show-sql: true
     properties.hibernate.format_sql: true
     properties.hibernate.jdbc.time_zone: UTC+1
-  h2:
-    console.enabled: true
   config:
     import: optional:classpath:gpw.yaml
 

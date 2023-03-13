@@ -1,5 +1,6 @@
 gpw:
-  default-dir: /home/enp.local/pflasza/data/gpw
+  # todo niektore ustawienia trzeba wyiagnac poza kod java
+  default-dir: /Users/slaszu/projects/java/data/gpw
 
   stooq.url: https://stooq.pl/t/?i=513&v=1&l=[page]&d=[date]
 
