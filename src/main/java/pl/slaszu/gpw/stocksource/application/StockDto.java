@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stocksource.application.FetchStocks;
+package pl.slaszu.gpw.stocksource.application;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

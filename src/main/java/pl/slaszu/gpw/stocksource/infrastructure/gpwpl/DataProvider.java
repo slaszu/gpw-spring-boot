@@ -2,9 +2,9 @@ package pl.slaszu.gpw.stocksource.infrastructure.gpwpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
+import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.application.FetchStocksException;
+import pl.slaszu.gpw.stocksource.application.StockDto;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.ArchiveDataProvider;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.TodayDataProvider;
 

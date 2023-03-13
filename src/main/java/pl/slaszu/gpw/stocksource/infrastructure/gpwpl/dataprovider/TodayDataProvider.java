@@ -3,20 +3,18 @@ package pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.ss.usermodel.Row;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
+import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.application.FetchStocksException;
+import pl.slaszu.gpw.stocksource.application.StockDto;
 
 import java.io.File;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,6 +58,11 @@ public class TodayDataProvider implements DataProviderInterface {
         for (Element row : table_tr) {
             // find td elements in row
             Elements cells = row.select("td");
+
+            if (cells.get(2).text().isEmpty()) {
+                break;
+            }
+
             stockCodes.add(
                     this.fromTableCells(cells)
             );
@@ -70,6 +73,8 @@ public class TodayDataProvider implements DataProviderInterface {
 
     private StockDto fromTableCells(Elements cells) {
         Date date = new Date();
+
+        log.debug(cells.toString());
 
         return new StockDto(
                 "", // code, not exists in gpw.pl
@@ -85,10 +90,11 @@ public class TodayDataProvider implements DataProviderInterface {
     }
 
     private Float fromStringToFloat(String string) {
-        if (string.isEmpty()) {
+        String stringX = string.replace(",",".").replaceAll("[^0-9.]", "");
+        if (stringX.isEmpty()) {
             return (float) 0;
         }
 
-        return Float.valueOf(string);
+        return Float.valueOf(stringX);
     }
 }

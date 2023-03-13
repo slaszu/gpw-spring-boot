@@ -2,7 +2,7 @@ package pl.slaszu.gpw.stocksource.infrastructure.stooq.service;
 
 import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
+import pl.slaszu.gpw.stocksource.application.StockDto;
 
 import java.util.Date;
 import java.util.List;

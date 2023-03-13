@@ -1,4 +1,4 @@
-package pl.slaszu.gpw.stocksource.application.FetchStocks;
+package pl.slaszu.gpw.stocksource.application;
 
 import java.util.Date;
 import java.util.List;

@@ -4,8 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockFetchedEvent;
+import pl.slaszu.gpw.stocksource.application.StockDto;
+import pl.slaszu.gpw.stocksource.application.StockFetchedEvent;
 
 @Component
 @Slf4j

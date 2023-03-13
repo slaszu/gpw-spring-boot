@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    container_name: gpw-mysql
+    restart: always
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 'gpw-mysql-root-password-123234#@' # TODO: Change this
+      MYSQL_USER: 'gpw'
+      MYSQL_PASS: 'gpw-password-213#'
+    volumes:
+      - ./docker-volumes/mysql:/var/lib/mysql
+    ports:
+      - "3309:3306"

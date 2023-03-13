@@ -2,18 +2,16 @@ package pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.StockDto;
+import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.application.FetchStocksException;
+import pl.slaszu.gpw.stocksource.application.StockDto;
 
-import java.io.File;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

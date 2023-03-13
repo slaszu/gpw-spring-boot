@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.FetchStocks.FetchStocksService;
+import pl.slaszu.gpw.stocksource.application.FetchStocksException;
+import pl.slaszu.gpw.stocksource.application.FetchStocksService;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.DataProvider;
 
 import java.util.Date;
