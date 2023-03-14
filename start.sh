@@ -8,13 +8,6 @@ dockerComposeTypesArgs=()
 for name in "$@"
 do
     if [[ " ${dockerComposeTypes[@]} " =~ " ${name} " ]]; then
-        # whatever you want to do when arr contains value
-#        if [ "$name" == "vpn" ]; then
-#            dockerType='host';
-#        else
-#            dockerType=$name
-#        fi
-
         dockerType=$name
         if [[ ! " ${dockerComposeTypesArgs[@]} " =~ " ${dockerType} " ]]; then
             dockerComposeTypesArgs+=( $dockerType )
@@ -23,7 +16,13 @@ do
 done
 
 #default, without arg
-# todo
+if [ ${#dockerComposeTypesArgs[@]} -eq 0 ]; then
+    echo "Start all services ..."
+    for name in "${dockerComposeTypes[@]}"
+    do
+        dockerComposeTypesArgs+=( $name )
+    done
+fi
 
 #prepare cmd
 cmd="docker-compose";

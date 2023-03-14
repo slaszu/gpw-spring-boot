@@ -9,10 +9,12 @@ services:
     environment:
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
+      APP_TEMP_DIR: /app-data
     networks:
       - gpw-network
     volumes:
       - ./target/gpw-app.jar:/gpw-app.jar
+      - ./docker-volumes/app-data:/app-data
     entrypoint: java -jar /gpw-app.jar
 
 networks:
