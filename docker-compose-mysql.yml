@@ -11,7 +11,12 @@ services:
       MYSQL_USER: gpw
       MYSQL_PASSWORD: gpw-password-213!
       MYSQL_DATABASE: gpw-db
-    volumes:
-      - ./docker-volumes/mysql:/var/lib/mysql
     ports:
       - "3309:3306"
+    networks:
+      - gpw-network
+    volumes:
+      - ./docker-volumes/mysql:/var/lib/mysql
+
+networks:
+  gpw-network:

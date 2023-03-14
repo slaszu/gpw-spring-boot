@@ -11,6 +11,7 @@
 	<groupId>pl.slaszu</groupId>
 	<artifactId>gpw</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>gpw</name>
 	<description>gpw stocks</description>
 	<properties>
@@ -90,6 +91,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>gpw-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
