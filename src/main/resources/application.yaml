@@ -3,7 +3,6 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3309}/gpw-db
     username: gpw
     password: gpw-password-213!
-    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update

@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/stocks")
-@Tag(name = "__stocks__")
+@Tag(name = "core")
 public class StockController {
 
     @Autowired
