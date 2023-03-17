@@ -6,7 +6,7 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-integrationtest.properties")
-class GpwApplicationTests {
+class GpwApplicationIT {
 
     @Test
     void contextLoads() {
