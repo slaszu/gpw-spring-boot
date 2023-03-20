@@ -16,3 +16,4 @@ spring:
 logging:
   level:
     pl.slaszu.gpw: DEBUG
+    
