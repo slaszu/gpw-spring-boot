@@ -77,7 +77,7 @@ public class TodayDataProvider implements DataProviderInterface {
         log.debug(cells.toString());
 
         return new StockDto(
-                "", // code, not exists in gpw.pl
+                cells.get(4).text(), // code
                 cells.get(2).text(), // name
                 this.fromStringToFloat(cells.get(9).text()), // open
                 this.fromStringToFloat(cells.get(11).text()), // high

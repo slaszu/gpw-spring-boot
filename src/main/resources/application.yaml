@@ -15,5 +15,6 @@ spring:
 
 logging:
   level:
-    pl.slaszu.gpw: DEBUG
-    
+    root: WARN # all logs e.g. then WARN
+    pl.slaszu.gpw: DEBUG # pl.slaszu.gpw app logs e.g. then DEBUG
+  file.path: ${gpw.default-dir}/log/

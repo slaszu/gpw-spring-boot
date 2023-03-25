@@ -37,8 +37,7 @@ public class CreateStockService {
         this.stockRepository.save(stock);
     }
 
-    private void createStockWithPrice(CreateStockCommand command)
-    {
+    private void createStockWithPrice(CreateStockCommand command) {
         Stock stock = this.getOrCreateStock(command);
 
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
@@ -77,22 +76,44 @@ public class CreateStockService {
     private Stock getOrCreateStock(CreateStockCommand command) {
 
         String code = command.getCode();
+        String name = command.getName();
         Optional<Stock> byCode;
+
+        /*
+        1. if code exists, search for stock by code
+        2. if stock by code exists then finish searching
+        3. if name exists, search for stock by name
+        4. if stock by name exists then finish searching
+        5. else create new stock entity
+         */
+
+        // TODO: 25/03/2023 write unit tests to this bisnes logic 
 
         if (!code.equals("")) {
             byCode = this.stockRepository.getByCode(command.getCode());
+            if (byCode.isPresent()) {
+                log.debug("getOrCreateStock by code = get");
+                return byCode.get();
+            }
         } else {
-            byCode = this.stockRepository.getByName(command.getName());
             code = null;
         }
 
-        if (byCode.isPresent()) {
-            log.debug("getOrCreateStock = get");
-            return byCode.get();
+        if (!name.equals("")) {
+            byCode = this.stockRepository.getByName(command.getName());
+            if (byCode.isPresent()) {
+                log.debug("getOrCreateStock by name = get");
+                Stock stock = byCode.get();
+                // fill code to this stock
+                stock.setCode(code);
+                return stock;
+            }
+        } else {
+            name = null;
         }
 
         UUID uuid = UUID.randomUUID();
         log.debug("getOrCreateStock = create");
-        return new Stock(uuid, code, command.getName());
+        return new Stock(uuid, code, name);
     }
 }
