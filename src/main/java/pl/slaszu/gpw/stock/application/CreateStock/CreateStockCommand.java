@@ -20,5 +20,6 @@ public class CreateStockCommand {
 
     public CreateStockCommand(String code) {
         this.code = code;
+        this.name = "";
     }
 }
