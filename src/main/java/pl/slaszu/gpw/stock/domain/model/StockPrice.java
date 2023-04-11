@@ -1,18 +1,19 @@
 package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name = "stock_price")
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 public class StockPrice {
 
     @Id
@@ -35,6 +36,9 @@ public class StockPrice {
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "stock_id", nullable = false)
@@ -46,5 +50,15 @@ public class StockPrice {
     public StockPrice(UUID id, Stock stock) {
         this.id = id;
         this.stock = stock;
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = new Date();
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.updatedAt = new Date();
     }
 }
