@@ -73,9 +73,6 @@ public class TodayDataProvider implements DataProviderInterface {
 
     private StockDto fromTableCells(Elements cells) {
         Date date = new Date();
-
-        log.debug(cells.toString());
-
         return new StockDto(
                 cells.get(4).text(), // code
                 cells.get(2).text(), // name

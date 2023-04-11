@@ -31,7 +31,5 @@ public class CreateStockListener {
         CreateStockCommand command = new CreateStockCommand(stockDTO.getCode(), stockDTO.getName(), stockPriceCommand);
 
         this.createStockService.create(command);
-
-        log.debug("Create whenStockFetched %s".formatted(stockDTO.getCode()));
     }
 }

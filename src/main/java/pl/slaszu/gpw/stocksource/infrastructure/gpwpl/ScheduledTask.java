@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import pl.slaszu.gpw.stocksource.application.FetchStocksService;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.TodayDataProvider;
 
 import java.text.SimpleDateFormat;
@@ -16,7 +17,10 @@ public class ScheduledTask {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
     @Autowired
-    private TodayDataProvider todayDataProvider;
+    private DataProvider gpwplDataProvider;
+
+    @Autowired
+    private FetchStocksService fetchStocksService;
 
     @SneakyThrows
     @Scheduled(cron = "0 */15 10-17 * * 0-5 ")
@@ -25,6 +29,6 @@ public class ScheduledTask {
         Date date = new Date();
 
         log.info("Scheduler {}", dateFormat.format(date));
-        todayDataProvider.getData(date);
+        this.fetchStocksService.fetch(this.gpwplDataProvider, date);
     }
 }

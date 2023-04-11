@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import pl.slaszu.gpw.stock.domain.model.Stock;
 import pl.slaszu.gpw.stock.domain.model.StockPrice;
@@ -61,15 +60,13 @@ public class CreateStockService {
     private StockPrice getOrCreateStockPrice(Stock stock, Date date) {
         Optional<StockPrice> byStockAndDate = this.stockPriceRepository.getByStockAndDate(stock, date);
         if (byStockAndDate.isPresent()) {
-            log.debug("getOrCreateStockPrice = get");
             return byStockAndDate.get();
         }
 
         UUID uuid = UUID.randomUUID();
-        log.debug("getOrCreateStockPrice = create");
         return new StockPrice(
-                uuid,
-                stock
+            uuid,
+            stock
         );
     }
 
@@ -92,7 +89,6 @@ public class CreateStockService {
         if (!code.equals("")) {
             byCode = this.stockRepository.getByCode(command.getCode());
             if (byCode.isPresent()) {
-                log.debug("getOrCreateStock by code = get");
                 return byCode.get();
             }
         } else {
@@ -102,7 +98,6 @@ public class CreateStockService {
         if (!name.equals("")) {
             byCode = this.stockRepository.getByName(command.getName());
             if (byCode.isPresent()) {
-                log.debug("getOrCreateStock by name = get");
                 Stock stock = byCode.get();
                 // fill code to this stock
                 stock.setCode(code);
@@ -113,7 +108,6 @@ public class CreateStockService {
         }
 
         UUID uuid = UUID.randomUUID();
-        log.debug("getOrCreateStock = create");
         return new Stock(uuid, code, name);
     }
 }

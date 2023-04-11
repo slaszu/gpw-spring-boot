@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.slaszu.gpw.stocksource.application.FetchStocksException;
@@ -24,15 +23,16 @@ public class GpwplController {
     @Autowired
     private FetchStocksService fetchStocksService;
 
-    @GetMapping({"/fetch", "/fetch/{date}"})
-    public void fetchStooq(
-            @PathVariable(required = false)
-            @DateTimeFormat(pattern = "yyyy-MM-dd")
-            Date date
+    @GetMapping({"/fetch"})
+    public void fetchStooqToday() throws FetchStocksException {
+        fetchStocksService.fetch(gpwplDataProvider, new Date());
+    }
+
+    @GetMapping({"/fetch/{date}"})
+    public void fetchStooqForDate(
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
+        Date date
     ) throws FetchStocksException {
-        if (date == null) {
-            date = new Date();
-        }
         fetchStocksService.fetch(gpwplDataProvider, date);
     }
 }

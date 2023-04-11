@@ -43,12 +43,7 @@ public class ArchiveDataProvider implements DataProviderInterface {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String currentUrl = this.url.replace("[date]", format.format(date));
 
-        log.debug("Gpw.pl archive date '%s'".formatted(format.format(date)));
         log.debug("Gpw.pl archive url '%s'".formatted(currentUrl));
-
-        // TODO: 23.02.2023 copyURLToFile can be removed
-//        File file = new File(this.dirTemp, "last_archive.xls");
-//        FileUtils.copyURLToFile(new URL(currentUrl), file, 3000, 3000);
 
         Workbook workbook = new HSSFWorkbook(new URL(currentUrl).openStream());
         Sheet sheet = workbook.getSheetAt(0);
@@ -72,8 +67,6 @@ public class ArchiveDataProvider implements DataProviderInterface {
 
         Date date = formatter.parse(row.getCell(0).getStringCellValue());
 
-        // TODO: 23.02.2023 code in stock is not good, remove and use only name
-        
         return new StockDto(
                 "", // code, not exists in gpw.pl
                 row.getCell(1).getStringCellValue(), // name

@@ -20,11 +20,9 @@ public class FetchStocksService {
 
     public void fetch(DataProviderInterface dataProviderInterface, Date date) throws FetchStocksException {
         dataProviderInterface.getData(date).forEach(
-                (StockDto stockDTO) -> {
-                    log.debug("Fetched stock code [x]".replace("x", stockDTO.getCode()));
-
-                    this.eventDispatcher.dispatch(new StockFetchedEvent(stockDTO));
-                }
+            (StockDto stockDTO) -> {
+                this.eventDispatcher.dispatch(new StockFetchedEvent(stockDTO));
+            }
         );
     }
 }
