@@ -11,7 +11,7 @@ public class ListStocksService {
     @Autowired
     private StockViewModelRepositoryInterface stockViewModelRepositoryInterface;
 
-    public List<StockViewModel> query(ListStocksQuery command) {
+    public List<StockViewModel> getAllStocks() {
         return this.stockViewModelRepositoryInterface.getAll();
     }
 }

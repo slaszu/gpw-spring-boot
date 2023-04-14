@@ -1,5 +1,6 @@
 package pl.slaszu.gpw.stock.infrastructure.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +21,13 @@ public class StockController {
     private ListStocksService listStocksService;
 
     @GetMapping("")
-    public List<StockViewModel> getStocks() {
-
-        ListStocksQuery query = new ListStocksQuery();
-        return this.listStocksService.query(query);
-
+    @Operation(summary = "get all stocks")
+    public List<StockViewModel> getAllStocks() {
+        return this.listStocksService.getAllStocks();
+    }
+    
+    public List<StockViewModel> getStocksByNameOrCode() {
+        // TODO: 14/04/2023 wyszukiwanie stockow
+        return null;
     }
 }

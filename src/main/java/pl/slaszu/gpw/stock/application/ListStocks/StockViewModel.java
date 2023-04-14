@@ -7,7 +7,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class StockViewModel {
 
-    private String id;
+    private String name;
     private String code;
 
 }

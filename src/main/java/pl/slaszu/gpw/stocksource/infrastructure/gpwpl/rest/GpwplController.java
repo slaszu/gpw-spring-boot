@@ -1,5 +1,6 @@
 package pl.slaszu.gpw.stocksource.infrastructure.gpwpl.rest;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,12 +25,14 @@ public class GpwplController {
     private FetchStocksService fetchStocksService;
 
     @GetMapping({"/fetch"})
-    public void fetchStooqToday() throws FetchStocksException {
+    @Operation(summary = "fetch stocks for today")
+    public void fetchStocksToday() throws FetchStocksException {
         fetchStocksService.fetch(gpwplDataProvider, new Date());
     }
 
     @GetMapping({"/fetch/{date}"})
-    public void fetchStooqForDate(
+    @Operation(summary = "fetch stocks for archival date")
+    public void fetchStocksForDate(
         @DateTimeFormat(pattern = "yyyy-MM-dd")
         Date date
     ) throws FetchStocksException {

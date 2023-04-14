@@ -24,7 +24,7 @@ public class StockVewModelRepository implements StockViewModelRepositoryInterfac
     private List<StockViewModel> convertStockToStockViewModel(List<Stock> stockList) {
         return stockList.stream().map(stock ->
                 new StockViewModel(
-                        stock.getId().toString(),
+                        stock.getName(),
                         stock.getCode()
                 )
         ).collect(Collectors.toList());
