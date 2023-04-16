@@ -21,12 +21,19 @@ public class StockVewModelRepository implements StockViewModelRepositoryInterfac
         return this.convertStockToStockViewModel(stockList);
     }
 
+    @Override
+    public List<StockViewModel> getAllLike(String query) {
+        List<Stock> stockList = this.jpaStockRepository.findAll(query);
+
+        return this.convertStockToStockViewModel(stockList);
+    }
+
     private List<StockViewModel> convertStockToStockViewModel(List<Stock> stockList) {
         return stockList.stream().map(stock ->
                 new StockViewModel(
                         stock.getName(),
                         stock.getCode()
                 )
-        ).collect(Collectors.toList());
+        ).toList();
     }
 }

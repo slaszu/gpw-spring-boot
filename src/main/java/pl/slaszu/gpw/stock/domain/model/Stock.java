@@ -17,10 +17,10 @@ public class Stock {
     @Setter(AccessLevel.NONE)
     private UUID id;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 10)
     private String code;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 50)
     private String name;
 
     public Stock() {

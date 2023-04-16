@@ -14,4 +14,8 @@ public class ListStocksService {
     public List<StockViewModel> getAllStocks() {
         return this.stockViewModelRepositoryInterface.getAll();
     }
+
+    public List<StockViewModel> getAllStocksLike(String query) {
+        return this.stockViewModelRepositoryInterface.getAllLike(query);
+    }
 }
