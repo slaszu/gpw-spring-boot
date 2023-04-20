@@ -33,6 +33,7 @@ public class StockPrice {
 
     private Integer amount;
 
+    // TODO: 20.04.2023 dodac indeks na tym polu, teraz sluzy do sortowania wynikow 
     @Temporal(TemporalType.DATE)
     private Date date;
 

@@ -14,7 +14,6 @@ import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -34,10 +33,10 @@ public class StockRestControllerIntegrationIT {
     public void endpointStocksExists_returnEmptyArray() throws Exception {
 
         mvc.perform(get("/stocks")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("[]"));
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+            .andExpect(content().json("[]"));
     }
 
     @Test
@@ -46,14 +45,14 @@ public class StockRestControllerIntegrationIT {
         List<StockViewModel> result = new ArrayList<>();
         result.add(new StockViewModel("uuid_123", "Stock_code_123"));
 
-        when(service.query(any())).thenReturn(result);
+        when(service.getAllStocks()).thenReturn(result);
 
         mvc.perform(get("/stocks")
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.length()").value(1))
-                .andExpect(jsonPath("$.[0].id").value("uuid_123"))
-                .andExpect(jsonPath("$.[0].code").value("Stock_code_123"));
+                .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+            .andExpect(jsonPath("$.length()").value(1))
+            .andExpect(jsonPath("$.[0].id").value("uuid_123"))
+            .andExpect(jsonPath("$.[0].code").value("Stock_code_123"));
     }
 }

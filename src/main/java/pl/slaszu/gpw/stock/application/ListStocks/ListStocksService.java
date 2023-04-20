@@ -9,13 +9,13 @@ import java.util.List;
 public class ListStocksService {
 
     @Autowired
-    private StockViewModelRepositoryInterface stockViewModelRepositoryInterface;
+    private StockViewModelRepositoryInterface stockViewModelRepository;
 
     public List<StockViewModel> getAllStocks() {
-        return this.stockViewModelRepositoryInterface.getAll();
+        return this.stockViewModelRepository.getAll();
     }
 
     public List<StockViewModel> getAllStocksLike(String query) {
-        return this.stockViewModelRepositoryInterface.getAllLike(query);
+        return this.stockViewModelRepository.getAllLike(query);
     }
 }

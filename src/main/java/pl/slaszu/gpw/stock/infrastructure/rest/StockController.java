@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.slaszu.gpw.stock.application.ListStocks.ListStocksQuery;
 import pl.slaszu.gpw.stock.application.ListStocks.ListStocksService;
 import pl.slaszu.gpw.stock.application.ListStocks.StockViewModel;
 
@@ -28,7 +27,7 @@ public class StockController {
     }
 
     @GetMapping("/{slug}")
-    @Operation(summary = "get all stocks like")
+    @Operation(summary = "get all stocks like code or name")
     public List<StockViewModel> getStocksByNameOrCode(
         @PathVariable String slug
     ) {

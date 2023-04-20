@@ -29,8 +29,8 @@ public class TodayDataProvider implements DataProviderInterface {
 
 
     public TodayDataProvider(
-            @Value("${gpw.gpwpl.url-today}") String url,
-            @Value("${gpw.gpwpl.dir-temp}") String dirTemp
+        @Value("${gpw.gpwpl.url-today}") String url,
+        @Value("${gpw.gpwpl.dir-temp}") String dirTemp
     ) {
         this.url = url;
         this.dirTemp = dirTemp;
@@ -64,7 +64,7 @@ public class TodayDataProvider implements DataProviderInterface {
             }
 
             stockCodes.add(
-                    this.fromTableCells(cells)
+                this.fromTableCells(cells)
             );
         }
 
@@ -74,20 +74,20 @@ public class TodayDataProvider implements DataProviderInterface {
     private StockDto fromTableCells(Elements cells) {
         Date date = new Date();
         return new StockDto(
-                cells.get(4).text(), // code
-                cells.get(2).text(), // name
-                this.fromStringToFloat(cells.get(9).text()), // open
-                this.fromStringToFloat(cells.get(11).text()), // high
-                this.fromStringToFloat(cells.get(10).text()), // low
-                this.fromStringToFloat(cells.get(12).text()), // price
-                this.fromStringToFloat(cells.get(23).text()).intValue(), // volumen
-                this.fromStringToFloat(cells.get(24).text()).intValue() * 1000, // amount
-                date
+            cells.get(4).text(), // code
+            cells.get(2).text(), // name
+            this.fromStringToFloat(cells.get(9).text()), // open
+            this.fromStringToFloat(cells.get(11).text()), // high
+            this.fromStringToFloat(cells.get(10).text()), // low
+            this.fromStringToFloat(cells.get(12).text()), // price
+            this.fromStringToFloat(cells.get(23).text()).intValue(), // volumen
+            (int) (this.fromStringToFloat(cells.get(24).text()) * 1000), // amount
+            date
         );
     }
 
     private Float fromStringToFloat(String string) {
-        String stringX = string.replace(",",".").replaceAll("[^0-9.]", "");
+        String stringX = string.replace(",", ".").replaceAll("[^0-9.]", "");
         if (stringX.isEmpty()) {
             return (float) 0;
         }

@@ -29,8 +29,8 @@ public class ArchiveDataProvider implements DataProviderInterface {
     private String dirTemp;
 
     public ArchiveDataProvider(
-            @Value("${gpw.gpwpl.url-archive}") String url,
-            @Value("${gpw.gpwpl.dir-temp}") String dirTemp
+        @Value("${gpw.gpwpl.url-archive}") String url,
+        @Value("${gpw.gpwpl.dir-temp}") String dirTemp
     ) {
         this.url = url;
         this.dirTemp = dirTemp;
@@ -68,15 +68,15 @@ public class ArchiveDataProvider implements DataProviderInterface {
         Date date = formatter.parse(row.getCell(0).getStringCellValue());
 
         return new StockDto(
-                "", // code, not exists in gpw.pl
-                row.getCell(1).getStringCellValue(), // name
-                (float) row.getCell(4).getNumericCellValue(), // open
-                (float) row.getCell(5).getNumericCellValue(), // high
-                (float) row.getCell(6).getNumericCellValue(), // low
-                (float) row.getCell(7).getNumericCellValue(), // price
-                (int) row.getCell(9).getNumericCellValue(), // volumen
-                (int) row.getCell(10).getNumericCellValue()*1000, // amount
-                date
+            "", // code, not exists in gpw.pl
+            row.getCell(1).getStringCellValue(), // name
+            (float) row.getCell(4).getNumericCellValue(), // open
+            (float) row.getCell(5).getNumericCellValue(), // high
+            (float) row.getCell(6).getNumericCellValue(), // low
+            (float) row.getCell(7).getNumericCellValue(), // price
+            (int) row.getCell(9).getNumericCellValue(), // volumen
+            (int) (row.getCell(11).getNumericCellValue() * 1000), // amount
+            date
         );
     }
 

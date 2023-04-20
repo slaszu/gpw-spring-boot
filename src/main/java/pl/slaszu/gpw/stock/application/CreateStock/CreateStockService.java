@@ -75,6 +75,7 @@ public class CreateStockService {
         String code = command.getCode();
         String name = command.getName();
         Optional<Stock> byCode;
+        Optional<Stock> byName;
 
         /*
         1. if code exists, search for stock by code
@@ -89,23 +90,18 @@ public class CreateStockService {
         if (!code.equals("")) {
             byCode = this.stockRepository.getByCode(command.getCode());
             if (byCode.isPresent()) {
-                return byCode.get();
+                return CreateStockFactory.fillIfNeeded(byCode.get(), code, name);
             }
-        } else {
-            code = null;
         }
 
         if (!name.equals("")) {
-            byCode = this.stockRepository.getByName(command.getName());
-            if (byCode.isPresent()) {
-                Stock stock = byCode.get();
-                // fill code to this stock
-                stock.setCode(code);
-                return stock;
+            byName = this.stockRepository.getByName(command.getName());
+            if (byName.isPresent()) {
+                return CreateStockFactory.fillIfNeeded(byName.get(), code, name);
             }
-        } else {
-            name = null;
         }
+
+
 
         UUID uuid = UUID.randomUUID();
         return new Stock(uuid, code, name);
