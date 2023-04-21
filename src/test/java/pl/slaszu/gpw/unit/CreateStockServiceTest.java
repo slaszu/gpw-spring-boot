@@ -42,6 +42,8 @@ class CreateStockServiceTest {
 
         // save new stock, not prepared (insert)
         verify(this.stockRepository, never()).save(this.stock);
+        verify(this.stockRepository).save(argThat( stock1 -> stock1.getCode().equals("kghm")));
+        verify(this.stockRepository).save(argThat( stock1 -> stock1.getName() == null));
     }
 
     @Test

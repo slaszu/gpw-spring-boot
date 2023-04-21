@@ -10,6 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class Stock {
 
     @Id

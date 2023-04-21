@@ -101,9 +101,7 @@ public class CreateStockService {
             }
         }
 
-
-
-        UUID uuid = UUID.randomUUID();
-        return new Stock(uuid, code, name);
+        Stock stock = new Stock(UUID.randomUUID(), code, name);
+        return CreateStockFactory.fillIfNeeded(stock);
     }
 }

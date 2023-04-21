@@ -1,19 +1,19 @@
 package pl.slaszu.gpw.stock.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "stock_price")
+@Table(name = "stock_price", indexes = {
+    @Index(name = "idx_stock_price_date", columnList = "date")
+})
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class StockPrice {
 
     @Id
@@ -33,7 +33,6 @@ public class StockPrice {
 
     private Integer amount;
 
-    // TODO: 20.04.2023 dodac indeks na tym polu, teraz sluzy do sortowania wynikow 
     @Temporal(TemporalType.DATE)
     private Date date;
 

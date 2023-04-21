@@ -10,7 +10,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 // TODO: 20/03/2023 logging to file with rotate log, logging only excption in PROD profile
 // TODO: 20/03/2023 create PROD profile
-// TODO: 20.04.2023 logi przestały sie tworzyć, sprawdzić 
 
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
