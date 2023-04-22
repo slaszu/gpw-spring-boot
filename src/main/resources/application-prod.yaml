@@ -1,0 +1,4 @@
+logging:
+  level:
+    root: WARN # all logs e.g. then WARN
+    pl.slaszu.gpw: INFO # pl.slaszu.gpw app logs e.g. then INFO

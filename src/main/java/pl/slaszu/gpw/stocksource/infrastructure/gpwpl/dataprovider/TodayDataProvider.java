@@ -40,7 +40,7 @@ public class TodayDataProvider implements DataProviderInterface {
     @Override
     public List<StockDto> getData(Date date) throws FetchStocksException {
 
-        log.debug("Gpw.pl today url '%s'".formatted(this.url));
+        log.info("Gpw.pl today url '%s'".formatted(this.url));
 
         File file = new File(this.dirTemp, "today_latest.xls");
         FileUtils.copyURLToFile(new URL(this.url), file, 3000, 3000);

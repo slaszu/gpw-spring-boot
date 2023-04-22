@@ -43,7 +43,7 @@ public class ArchiveDataProvider implements DataProviderInterface {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String currentUrl = this.url.replace("[date]", format.format(date));
 
-        log.debug("Gpw.pl archive url '%s'".formatted(currentUrl));
+        log.info("Gpw.pl archive url '%s'".formatted(currentUrl));
 
         Workbook workbook = new HSSFWorkbook(new URL(currentUrl).openStream());
         Sheet sheet = workbook.getSheetAt(0);
