@@ -26,26 +26,19 @@ public class CreateStockService {
     @Transactional
     public void create(CreateStockCommand command) {
 
+        // stock
+        Stock stock = this.getOrCreateStock(command);
+        stock = this.stockRepository.save(stock);
+
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         if (createStockPriceCommand != null) {
-            this.createStockWithPrice(command);
-            return;
+            // stock price
+            StockPrice stockPrice = this.getOrCreateStockPrice(stock, createStockPriceCommand.getDate());
+            this.refreshStockPrice(stockPrice, createStockPriceCommand);
+
+            this.stockPriceRepository.save(stockPrice);
         }
-
-        Stock stock = this.getOrCreateStock(command);
-        this.stockRepository.save(stock);
     }
-
-    private void createStockWithPrice(CreateStockCommand command) {
-        Stock stock = this.getOrCreateStock(command);
-
-        CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
-        StockPrice stockPrice = this.getOrCreateStockPrice(stock, createStockPriceCommand.getDate());
-        this.refreshStockPrice(stockPrice, createStockPriceCommand);
-
-        this.stockPriceRepository.save(stockPrice);
-    }
-
 
     private void refreshStockPrice(StockPrice stockPrice, CreateStockPriceCommand createStockPriceCommand) {
         stockPrice.setPrice(createStockPriceCommand.getPrice());

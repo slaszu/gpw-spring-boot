@@ -21,7 +21,7 @@ public class StockPriceRepository implements StockPriceRepositoryInterface {
     }
 
     @Override
-    public void save(StockPrice stockPrice) {
-        this.jpaStockPriceRepository.save(stockPrice);
+    public StockPrice save(StockPrice stockPrice) {
+        return this.jpaStockPriceRepository.save(stockPrice);
     }
 }

@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface StockPriceRepositoryInterface {
     public Optional<StockPrice> getByStockAndDate(Stock stock, Date date);
 
-    public void save(StockPrice stockPrice);
+    public StockPrice save(StockPrice stockPrice);
 }

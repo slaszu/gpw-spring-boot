@@ -30,7 +30,7 @@ public class StockRepository implements StockRepositoryInterface {
     }
 
     @Override
-    public void save(Stock stock) {
-        this.jpaStockRepository.save(stock);
+    public Stock save(Stock stock) {
+        return this.jpaStockRepository.save(stock);
     }
 }
