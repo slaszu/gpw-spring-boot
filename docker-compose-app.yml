@@ -7,16 +7,25 @@ services:
       dockerfile: ./.docker/Dockerfile
     ports:
       - "8080:8080"
+    expose: 
+      - "80"
+      - "443"
     environment:
+      VIRTUAL_HOST: www.gpw.g-sitemap-generator.com,gpw.g-sitemap-generator.com
+      VIRTUAL_HOST_ALIAS: gpw.g-sitemap-generator.com
+      LETSENCRYPT_HOST: gpw.g-sitemap-generator.com,www.gpw.g-sitemap-generator.com
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       APP_TEMP_DIR: /app-data
       spring_profiles_active: prod
     networks:
       - gpw-network
+      - my-network
     volumes:
       - ./docker-volumes/app-data:/app-data
     entrypoint: java -jar /app-build/target/gpw-app.jar
 
 networks:
   gpw-network:
+  my-network:
+    external: true # this network should exists in nginx-proxy docker-compose.yml

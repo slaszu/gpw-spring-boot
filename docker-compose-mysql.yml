@@ -3,7 +3,7 @@ services:
   mysql:
     container_name: gpw-mysql
     restart: always
-    image: mysql:latest
+    image: mysql:5.7
     # no problem with login by user nad password (plain text)
     command: --default-authentication-plugin=mysql_native_password
     environment:
