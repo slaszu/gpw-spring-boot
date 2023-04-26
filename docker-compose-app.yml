@@ -23,7 +23,7 @@ services:
       - my-network
     volumes:
       - ./docker-volumes/app-data:/app-data
-    entrypoint: java -jar /app-build/target/gpw-app.jar
+    entrypoint: java -jar /app-build/target/gpw-app.jar --server.port=80
 
 networks:
   gpw-network:
