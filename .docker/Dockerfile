@@ -1,5 +1,8 @@
 FROM amazoncorretto:19-alpine-jdk
 
+RUN apk add --no-cache tzdata
+ENV TZ=Europe/Warsaw
+
 RUN echo "Copy files..."
 
 COPY src/ /app-build/src
