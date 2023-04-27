@@ -1,5 +1,6 @@
 package pl.slaszu.gpw.stock.application.ListStockPrice;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,7 @@ public class StockPriceViewModel {
 
     private Date date;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss Z", timezone="Europe/Warsaw")
     private Date updatedAt;
 
     public static StockPriceViewModel fromStockPrice(StockPrice stockPrice) {
