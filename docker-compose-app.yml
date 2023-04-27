@@ -11,6 +11,7 @@ services:
       - "80"
       - "443"
     environment:
+      TZ: Europe/Warsaw
       VIRTUAL_HOST: www.gpw.g-sitemap-generator.com,gpw.g-sitemap-generator.com
       VIRTUAL_HOST_ALIAS: gpw.g-sitemap-generator.com
       LETSENCRYPT_HOST: gpw.g-sitemap-generator.com,www.gpw.g-sitemap-generator.com
