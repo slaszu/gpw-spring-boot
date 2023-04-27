@@ -11,12 +11,13 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 // TODO: 20/03/2023 logging to file with rotate log, logging only excption in PROD profile
 // TODO: 20/03/2023 create PROD profile
+// TODO: 27.04.2023 ./stop with params app|mysql
 
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
 @EnableScheduling
 @OpenAPIDefinition(
-    info = @Info(title = "GPW stocks API",version = "1.0"),
+    info = @Info(title = "GPW stocks API", version = "1.0"),
     servers = {@Server(url = "/", description = "Default Server URL")}
 )
 
