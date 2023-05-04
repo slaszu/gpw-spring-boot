@@ -12,6 +12,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 // TODO: 20/03/2023 logging to file with rotate log, logging only excption in PROD profile
 // TODO: 20/03/2023 create PROD profile
 // TODO: 27.04.2023 ./stop with params app|mysql
+// TODO: 27.04.2023 cache data and refresh after db data chenged 
+// TODO: 04.05.2023 add calendar days to turn of scheduler on day without session
 
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)

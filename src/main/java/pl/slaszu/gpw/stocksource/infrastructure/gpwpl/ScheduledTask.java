@@ -22,9 +22,13 @@ public class ScheduledTask {
     @Autowired
     private FetchStocksService fetchStocksService;
 
+    /*
+      @see https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html
+     * in cron statement is 6 digits
+     */
     @SneakyThrows
-    @Scheduled(cron = "0 */15 10-17 * * 0-5 ")
-    @Scheduled(cron = "0 15,30,40 9 * * 0-5")
+    @Scheduled(cron = "0 */15 10-17 * * 1-5")
+    @Scheduled(cron = "0 15,30,40 9 * * 1-5")
     public void getCurrentStock() {
         Date date = new Date();
 
