@@ -1,12 +1,11 @@
 package pl.slaszu.gpw.stocksource.infrastructure.gpwpl;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import pl.slaszu.gpw.stocksource.application.FetchStocksException;
 import pl.slaszu.gpw.stocksource.application.FetchStocksService;
-import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.TodayDataProvider;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,13 +25,15 @@ public class ScheduledTask {
       @see https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html
      * in cron statement is 6 digits
      */
-    @SneakyThrows
-    @Scheduled(cron = "0 */15 10-17 * * 1-5")
-    @Scheduled(cron = "0 15,30,40 9 * * 1-5")
+    @Scheduled(cron = "0 */15 9-17 * * 1-5")
     public void getCurrentStock() {
         Date date = new Date();
 
         log.info("Scheduler {}", dateFormat.format(date));
-        this.fetchStocksService.fetch(this.gpwplDataProvider, date);
+        try {
+            this.fetchStocksService.fetch(this.gpwplDataProvider, date);
+        } catch (FetchStocksException e) {
+            log.info("FetchStocksException: %s".formatted(e.getMessage()));
+        }
     }
 }
