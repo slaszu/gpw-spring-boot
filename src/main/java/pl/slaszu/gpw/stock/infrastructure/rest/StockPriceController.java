@@ -21,7 +21,7 @@ public class StockPriceController {
     private ListStockPriceService listStockPriceService;
 
     @GetMapping("/{stockCode}")
-    @Operation(summary = "get all stock prices for stock code")
+    @Operation(summary = "get last 90 stock prices for stock code")
     public List<StockPriceViewModel> getAllByStockCode(
         @PathVariable String stockCode
     ) {

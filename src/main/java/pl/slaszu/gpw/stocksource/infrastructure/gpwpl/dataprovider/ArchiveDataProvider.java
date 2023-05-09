@@ -8,9 +8,9 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.StockDto;
+import pl.slaszu.gpw.stocksource.domain.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.domain.StockDto;
+import pl.slaszu.gpw.stocksource.domain.exception.FetchStocksException;
 
 import java.net.URL;
 import java.text.ParseException;
@@ -26,14 +26,10 @@ public class ArchiveDataProvider implements DataProviderInterface {
 
     private String url;
 
-    private String dirTemp;
-
     public ArchiveDataProvider(
-        @Value("${gpw.gpwpl.url-archive}") String url,
-        @Value("${gpw.gpwpl.dir-temp}") String dirTemp
+        @Value("${gpw.gpwpl.url-archive}") String url
     ) {
         this.url = url;
-        this.dirTemp = dirTemp;
     }
 
     @SneakyThrows

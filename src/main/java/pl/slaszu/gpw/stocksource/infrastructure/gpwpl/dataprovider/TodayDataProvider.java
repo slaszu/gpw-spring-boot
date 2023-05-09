@@ -9,9 +9,9 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.StockDto;
+import pl.slaszu.gpw.stocksource.domain.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.stocksource.domain.StockDto;
 
 import java.io.File;
 import java.net.URL;

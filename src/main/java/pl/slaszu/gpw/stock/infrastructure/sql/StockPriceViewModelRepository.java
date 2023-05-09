@@ -23,7 +23,7 @@ public class StockPriceViewModelRepository implements StockPriceViewModelReposit
 
         // TODO: 20.04.2023 sortowanie po dacie asc, desc i limit podawany w parametrze endpointu
         return this.jpaStockPriceRepository
-            .findAllByStockCode(code, PageRequest.of(0,10, Sort.Direction.DESC, "date"))
+            .findAllByStockCode(code, PageRequest.of(0,90, Sort.Direction.DESC, "date"))
             .stream().map(StockPriceViewModel::fromStockPrice)
             .toList();
 
