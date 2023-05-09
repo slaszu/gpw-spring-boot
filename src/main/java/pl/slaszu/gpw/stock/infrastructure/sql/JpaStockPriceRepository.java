@@ -1,5 +1,7 @@
 package pl.slaszu.gpw.stock.infrastructure.sql;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,8 +17,8 @@ import java.util.UUID;
 public interface JpaStockPriceRepository extends JpaRepository<StockPrice, UUID> {
     public Optional<StockPrice> findByStockAndDate(Stock stock, Date date);
 
-    // TODO: 20.04.2023 sortowanie po dacie asc, desc i limit podawany w parametrze endpointu 
     @Query("select sp from StockPrice sp join sp.stock s where s.code = ?1 order by sp.date")
     public List<StockPrice> findAllByStockCode(String stockCode);
 
+    public List<StockPrice> findAllByStockCode(String stockCode, Pageable pageable);
 }
