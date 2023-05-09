@@ -3,9 +3,10 @@ package pl.slaszu.gpw.stocksource.infrastructure.gpwpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.slaszu.gpw.calendar.CalendarDayService;
-import pl.slaszu.gpw.stocksource.application.DataProviderInterface;
-import pl.slaszu.gpw.stocksource.application.FetchStocksException;
-import pl.slaszu.gpw.stocksource.application.StockDto;
+import pl.slaszu.gpw.stocksource.domain.DataProviderInterface;
+import pl.slaszu.gpw.stocksource.domain.exception.FetchStocksException;
+import pl.slaszu.gpw.stocksource.domain.StockDto;
+import pl.slaszu.gpw.stocksource.domain.exception.FreeDayException;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.ArchiveDataProvider;
 import pl.slaszu.gpw.stocksource.infrastructure.gpwpl.dataprovider.TodayDataProvider;
 
@@ -28,15 +29,15 @@ public class DataProvider implements DataProviderInterface {
     private CalendarDayService calendarDayService;
 
     @Override
-    public List<StockDto> getData(Date date) throws FetchStocksException {
+    public List<StockDto> getData(Date date) throws FetchStocksException, FreeDayException {
 
         LocalDate localDate = this.convertToLocalDateViaInstant(date);
         if (this.calendarDayService.isHoliday(localDate)) {
-            throw new FetchStocksException("Date %s is holiday !".formatted(localDate.toString()));
+            throw new FreeDayException("Date %s is holiday !".formatted(localDate.toString()));
         }
 
         if (this.calendarDayService.isWeekend(localDate)) {
-            throw new FetchStocksException("Date %s is weekend !".formatted(localDate.toString()));
+            throw new FreeDayException("Date %s is weekend !".formatted(localDate.toString()));
         }
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
