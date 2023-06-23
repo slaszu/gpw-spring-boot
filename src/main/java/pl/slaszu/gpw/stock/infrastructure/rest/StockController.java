@@ -3,6 +3,7 @@ package pl.slaszu.gpw.stock.infrastructure.rest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,14 @@ public class StockController {
 
     @GetMapping("")
     @Operation(summary = "get all stocks")
+    @Cacheable("rest_stock")
     public List<StockViewModel> getAllStocks() {
         return this.listStocksService.getAllStocks();
     }
 
     @GetMapping("/{slug}")
     @Operation(summary = "get all stocks like code or name")
+    @Cacheable("rest_stock")
     public List<StockViewModel> getStocksByNameOrCode(
         @PathVariable String slug
     ) {

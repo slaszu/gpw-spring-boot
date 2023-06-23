@@ -1,0 +1,15 @@
+version: '3'
+services:
+  redis:
+    container_name: gpw-redis
+    restart: always
+    image: redis:7-alpine
+    ports:
+      - "3308:6379"
+    networks:
+      - gpw-network
+    volumes:
+      - ./docker-volumes/redis:/data
+
+networks:
+  gpw-network:
