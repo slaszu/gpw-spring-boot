@@ -23,14 +23,13 @@ public class StockController {
 
     @GetMapping("")
     @Operation(summary = "get all stocks")
-    @Cacheable("rest_stock")
+
     public List<StockViewModel> getAllStocks() {
         return this.listStocksService.getAllStocks();
     }
 
     @GetMapping("/{slug}")
     @Operation(summary = "get all stocks like code or name")
-    @Cacheable("rest_stock")
     public List<StockViewModel> getStocksByNameOrCode(
         @PathVariable String slug
     ) {

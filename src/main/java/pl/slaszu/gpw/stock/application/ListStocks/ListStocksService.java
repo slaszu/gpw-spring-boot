@@ -1,6 +1,7 @@
 package pl.slaszu.gpw.stock.application.ListStocks;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +12,12 @@ public class ListStocksService {
     @Autowired
     private StockViewModelRepositoryInterface stockViewModelRepository;
 
+    @Cacheable("rest_stock")
     public List<StockViewModel> getAllStocks() {
         return this.stockViewModelRepository.getAll();
     }
 
+    @Cacheable("rest_stock")
     public List<StockViewModel> getAllStocksLike(String query) {
         return this.stockViewModelRepository.getAllLike(query);
     }
