@@ -17,8 +17,11 @@ public class ListStocksService {
         return this.stockViewModelRepository.getAll();
     }
 
-    @Cacheable("rest_stock")
     public List<StockViewModel> getAllStocksLike(String query) {
-        return this.stockViewModelRepository.getAllLike(query);
+        return this.getAllStocks().stream()
+            .filter(stockViewModel
+                -> stockViewModel.getCode().toLowerCase().contains(query.toLowerCase())
+                || stockViewModel.getName().toLowerCase().contains(query.toLowerCase()))
+            .toList();
     }
 }
