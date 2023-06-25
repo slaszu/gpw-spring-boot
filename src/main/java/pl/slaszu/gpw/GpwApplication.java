@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 // TODO: 27.04.2023 ./stop with params app|mysql
@@ -22,6 +23,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
     servers = {@Server(url = "/", description = "Default Server URL")}
 )
 @EnableCaching
+@EnableAsync
 public class GpwApplication {
 
     public static void main(String[] args) {

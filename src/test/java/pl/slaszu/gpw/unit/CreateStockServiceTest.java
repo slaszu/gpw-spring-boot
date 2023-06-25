@@ -2,6 +2,7 @@ package pl.slaszu.gpw.unit;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.slaszu.gpw.sharedkernel.domain.EventDispatcherInterface;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockCommand;
 import pl.slaszu.gpw.stock.application.CreateStock.CreateStockService;
 import pl.slaszu.gpw.stock.domain.model.Stock;
@@ -11,7 +12,6 @@ import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.*;
 
 class CreateStockServiceTest {
@@ -31,8 +31,9 @@ class CreateStockServiceTest {
         when(stockRepository.getByCode("pzu")).thenReturn(Optional.of(stock));
 
         StockPriceRepositoryInterface stockPriceRepository = mock(StockPriceRepositoryInterface.class);
+        EventDispatcherInterface eventDispatcher = mock(EventDispatcherInterface.class);
 
-        this.createStockService = new CreateStockService(this.stockRepository, stockPriceRepository);
+        this.createStockService = new CreateStockService(this.stockRepository, stockPriceRepository, eventDispatcher);
     }
 
     @Test
@@ -42,8 +43,8 @@ class CreateStockServiceTest {
 
         // save new stock, not prepared (insert)
         verify(this.stockRepository, never()).save(this.stock);
-        verify(this.stockRepository).save(argThat( stock1 -> stock1.getCode().equals("kghm")));
-        verify(this.stockRepository).save(argThat( stock1 -> stock1.getName() == null));
+        verify(this.stockRepository).save(argThat(stock1 -> stock1.getCode().equals("kghm")));
+        verify(this.stockRepository).save(argThat(stock1 -> stock1.getName() == null));
     }
 
     @Test

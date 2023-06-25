@@ -12,7 +12,7 @@ public class ListStocksService {
     @Autowired
     private StockViewModelRepositoryInterface stockViewModelRepository;
 
-    @Cacheable("rest_stock")
+    @Cacheable("stock")
     public List<StockViewModel> getAllStocks() {
         return this.stockViewModelRepository.getAll();
     }

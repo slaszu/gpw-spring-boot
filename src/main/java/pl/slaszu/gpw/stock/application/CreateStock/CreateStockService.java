@@ -2,9 +2,11 @@ package pl.slaszu.gpw.stock.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.slaszu.gpw.sharedkernel.domain.EventDispatcherInterface;
+import pl.slaszu.gpw.stock.application.CreateStock.Event.StockChangedEvent;
+import pl.slaszu.gpw.stock.application.CreateStock.Event.StockPriceChangedEvent;
 import pl.slaszu.gpw.stock.domain.model.Stock;
 import pl.slaszu.gpw.stock.domain.model.StockPrice;
 import pl.slaszu.gpw.stock.domain.repository.StockPriceRepositoryInterface;
@@ -18,25 +20,35 @@ import java.util.UUID;
 @AllArgsConstructor
 @Slf4j
 public class CreateStockService {
-    @Autowired
+
     private StockRepositoryInterface stockRepository;
 
     private StockPriceRepositoryInterface stockPriceRepository;
+
+    private EventDispatcherInterface eventDispatcher;
 
     @Transactional
     public void create(CreateStockCommand command) {
 
         // stock
         Stock stock = this.getOrCreateStock(command);
-        stock = this.stockRepository.save(stock);
+        Stock stockSaved = this.stockRepository.save(stock);
+
+        if (!stockSaved.equals(stock)) {
+            this.eventDispatcher.dispatch(new StockChangedEvent(stockSaved));
+        }
 
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         if (createStockPriceCommand != null) {
             // stock price
-            StockPrice stockPrice = this.getOrCreateStockPrice(stock, createStockPriceCommand.getDate());
+            StockPrice stockPrice = this.getOrCreateStockPrice(stockSaved, createStockPriceCommand.getDate());
             this.refreshStockPrice(stockPrice, createStockPriceCommand);
 
-            this.stockPriceRepository.save(stockPrice);
+            StockPrice stockPriceSaved = this.stockPriceRepository.save(stockPrice);
+
+            if (!stockPriceSaved.equals(stockPrice)) {
+                this.eventDispatcher.dispatch(new StockPriceChangedEvent(stockPriceSaved));
+            }
         }
     }
 
