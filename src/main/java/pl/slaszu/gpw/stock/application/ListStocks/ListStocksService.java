@@ -19,9 +19,19 @@ public class ListStocksService {
 
     public List<StockViewModel> getAllStocksLike(String query) {
         return this.getAllStocks().stream()
-            .filter(stockViewModel
-                -> stockViewModel.getCode().toLowerCase().contains(query.toLowerCase())
-                || stockViewModel.getName().toLowerCase().contains(query.toLowerCase()))
+            .filter(stockViewModel -> {
+
+                String code = stockViewModel.getCode();
+                if (code != null && code.toLowerCase().contains(query.toLowerCase())) {
+                    return true;
+                }
+                String name = stockViewModel.getName();
+                if (name != null && name.toLowerCase().contains(query.toLowerCase())) {
+                    return true;
+                }
+
+                return false;
+            })
             .toList();
     }
 }

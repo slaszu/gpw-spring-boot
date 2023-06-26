@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import pl.slaszu.gpw.stock.application.CreateStock.Event.StockChangedEvent;
 import pl.slaszu.gpw.stock.application.CreateStock.Event.StockPriceChangedEvent;
+import pl.slaszu.gpw.stock.application.ListStockPrice.ListStockPriceService;
 import pl.slaszu.gpw.stocksource.domain.StockDto;
 import pl.slaszu.gpw.stocksource.domain.StockFetchedEvent;
 
@@ -21,6 +22,9 @@ public class CreateStockListener {
 
     @Autowired
     private CacheManager cacheManager;
+
+    @Autowired
+    private ListStockPriceService listStockPriceService;
 
     @EventListener
     public void whenStockFetched(StockFetchedEvent event) {
@@ -64,5 +68,9 @@ public class CreateStockListener {
         String code = event.getStockPrice().getStock().getCode();
         stockPriceCache.evictIfPresent(code.toLowerCase());
         log.debug("Cache for stock_price:%s cleared".formatted(code));
+
+        this.listStockPriceService.getAllByStockCode(code);
+        log.debug("Cache for stock_price:%s created".formatted(code));
+
     }
 }
