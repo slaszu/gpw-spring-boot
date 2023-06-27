@@ -14,8 +14,8 @@ spring:
   cache:
     type: redis
   data.redis:
-    host: 127.0.0.1
-    port: 3308
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:3308}
 logging:
   level:
     root: WARN # all logs e.g. then WARN
