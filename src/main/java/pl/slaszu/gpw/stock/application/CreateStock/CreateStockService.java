@@ -12,9 +12,7 @@ import pl.slaszu.gpw.stock.domain.model.StockPrice;
 import pl.slaszu.gpw.stock.domain.repository.StockPriceRepositoryInterface;
 import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -27,15 +25,24 @@ public class CreateStockService {
 
     private EventDispatcherInterface eventDispatcher;
 
-    @Transactional
     public void create(CreateStockCommand command) {
+        List<Object> events = this.save(command);
+        events.forEach( o -> {
+            this.eventDispatcher.dispatch(o);
+        });
+    }
+
+    @Transactional
+    private List<Object> save(CreateStockCommand command) {
+
+        List<Object> events = new ArrayList<>();
 
         // stock
         Stock stock = this.getOrCreateStock(command);
         Stock stockSaved = this.stockRepository.save(stock);
 
         if (!stockSaved.equals(stock)) {
-            this.eventDispatcher.dispatch(new StockChangedEvent(stockSaved));
+            events.add(new StockChangedEvent(stockSaved));
         }
 
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
@@ -47,9 +54,11 @@ public class CreateStockService {
             StockPrice stockPriceSaved = this.stockPriceRepository.save(stockPrice);
 
             if (!stockPriceSaved.equals(stockPrice)) {
-                this.eventDispatcher.dispatch(new StockPriceChangedEvent(stockPriceSaved));
+                events.add(new StockPriceChangedEvent(stockPriceSaved));
             }
         }
+
+        return events;
     }
 
     private void refreshStockPrice(StockPrice stockPrice, CreateStockPriceCommand createStockPriceCommand) {
