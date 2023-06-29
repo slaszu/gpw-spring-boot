@@ -12,6 +12,7 @@ import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 import java.util.Optional;
 import java.util.UUID;
 
+import static org.mockito.AdditionalAnswers.returnsFirstArg;
 import static org.mockito.Mockito.*;
 
 class CreateStockServiceTest {
@@ -29,6 +30,7 @@ class CreateStockServiceTest {
 
         when(stockRepository.getByCode("kghm")).thenReturn(Optional.empty());
         when(stockRepository.getByCode("pzu")).thenReturn(Optional.of(stock));
+        when(stockRepository.save(any(Stock.class))).then(returnsFirstArg());
 
         StockPriceRepositoryInterface stockPriceRepository = mock(StockPriceRepositoryInterface.class);
         EventDispatcherInterface eventDispatcher = mock(EventDispatcherInterface.class);
