@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 // TODO: 27.04.2023 ./stop with params app|mysql
 // TODO: 27.04.2023 cache data and refresh after db data chenged
-// TODO: 06/05/2023 on production dont show full exception stack 
+// TODO: 06/05/2023 on production dont show full exception stack
 
 @SpringBootApplication
 @ComponentScan(nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
