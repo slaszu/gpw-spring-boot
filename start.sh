@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dockerComposeTypes=('mysql' 'app')
+dockerComposeTypes=('mysql' 'app' 'redis')
 
 dockerComposeTypesArgs=()
 

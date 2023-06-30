@@ -17,6 +17,8 @@ services:
       LETSENCRYPT_HOST: gpw.g-sitemap-generator.com,www.gpw.g-sitemap-generator.com
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
       APP_TEMP_DIR: /app-data
       spring_profiles_active: prod
     networks:
