@@ -2,42 +2,63 @@ package pl.slaszu.gpw.stock.application.CreateStock;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.slaszu.gpw.sharedkernel.domain.EventDispatcherInterface;
+import pl.slaszu.gpw.stock.application.CreateStock.Event.StockChangedEvent;
+import pl.slaszu.gpw.stock.application.CreateStock.Event.StockPriceChangedEvent;
 import pl.slaszu.gpw.stock.domain.model.Stock;
 import pl.slaszu.gpw.stock.domain.model.StockPrice;
 import pl.slaszu.gpw.stock.domain.repository.StockPriceRepositoryInterface;
 import pl.slaszu.gpw.stock.domain.repository.StockRepositoryInterface;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
 @Slf4j
 public class CreateStockService {
-    @Autowired
+
     private StockRepositoryInterface stockRepository;
 
     private StockPriceRepositoryInterface stockPriceRepository;
 
-    @Transactional
+    private EventDispatcherInterface eventDispatcher;
+
     public void create(CreateStockCommand command) {
+        List<Object> events = this.save(command);
+        events.forEach( o -> {
+            this.eventDispatcher.dispatch(o);
+        });
+    }
+
+    @Transactional
+    private List<Object> save(CreateStockCommand command) {
+
+        List<Object> events = new ArrayList<>();
 
         // stock
         Stock stock = this.getOrCreateStock(command);
-        stock = this.stockRepository.save(stock);
+        Stock stockSaved = this.stockRepository.save(stock);
+
+        if (!stockSaved.equals(stock)) {
+            events.add(new StockChangedEvent(stockSaved));
+        }
 
         CreateStockPriceCommand createStockPriceCommand = command.getCreateStockPriceCommand();
         if (createStockPriceCommand != null) {
             // stock price
-            StockPrice stockPrice = this.getOrCreateStockPrice(stock, createStockPriceCommand.getDate());
+            StockPrice stockPrice = this.getOrCreateStockPrice(stockSaved, createStockPriceCommand.getDate());
             this.refreshStockPrice(stockPrice, createStockPriceCommand);
 
-            this.stockPriceRepository.save(stockPrice);
+            StockPrice stockPriceSaved = this.stockPriceRepository.save(stockPrice);
+
+            if (!stockPriceSaved.equals(stockPrice)) {
+                events.add(new StockPriceChangedEvent(stockPriceSaved));
+            }
         }
+
+        return events;
     }
 
     private void refreshStockPrice(StockPrice stockPrice, CreateStockPriceCommand createStockPriceCommand) {

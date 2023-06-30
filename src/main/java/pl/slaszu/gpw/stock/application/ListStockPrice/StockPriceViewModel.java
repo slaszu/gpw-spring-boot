@@ -6,11 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import pl.slaszu.gpw.stock.domain.model.StockPrice;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class StockPriceViewModel {
+public class StockPriceViewModel implements Serializable {
 
     private Float priceOpen;
 
@@ -26,7 +27,7 @@ public class StockPriceViewModel {
 
     private Date date;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss Z", timezone="Europe/Warsaw")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss Z", timezone = "Europe/Warsaw")
     private Date updatedAt;
 
     public static StockPriceViewModel fromStockPrice(StockPrice stockPrice) {
