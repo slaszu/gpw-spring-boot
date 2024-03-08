@@ -2,7 +2,7 @@
 
 Working app is presented here:  
 
-https://rapidapi.com/piotrflasza/api/gpw-stock-api/
+https://rapidapi.com/slaszu/api/gpw-stocks-api
 
 # Build & unit tests & run
 
